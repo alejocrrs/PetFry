@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetFry", "PetFry\PetFry.csproj", "{87372413-220E-47EC-BB29-A754BA602204}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaz", "Interfaz\Interfaz.csproj", "{A8925BDB-ED6A-4DCB-83D2-B32CF72AC237}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87372413-220E-47EC-BB29-A754BA602204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87372413-220E-47EC-BB29-A754BA602204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87372413-220E-47EC-BB29-A754BA602204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87372413-220E-47EC-BB29-A754BA602204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8925BDB-ED6A-4DCB-83D2-B32CF72AC237}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8925BDB-ED6A-4DCB-83D2-B32CF72AC237}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8925BDB-ED6A-4DCB-83D2-B32CF72AC237}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8925BDB-ED6A-4DCB-83D2-B32CF72AC237}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {229C1E56-608D-4DC9-AB78-93D0FD015276}
+	EndGlobalSection
+EndGlobal
