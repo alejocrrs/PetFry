@@ -33,13 +33,14 @@ namespace Interfaz
             InitializeComponent();
 
             Text = $"Editar mascota #{indiceMascota}";
-            txtNombre.Text = FormInicio.PETFRY.Mascotas[this.IndiceMascota].Nombre;
-            txtPropietario.Text = FormInicio.PETFRY.Mascotas[this.IndiceMascota].Propietario.Documento;
-            cboAnimal.SelectedText = FormInicio.PETFRY.Mascotas[this.IndiceMascota].Animal;
-            txtRaza.Text = FormInicio.PETFRY.Mascotas[this.IndiceMascota].Raza;
-            txtPeso.Text = FormInicio.PETFRY.Mascotas[this.IndiceMascota].Peso.ToString();
-            txtColor.Text = FormInicio.PETFRY.Mascotas[this.IndiceMascota].Color;
-            txtNotas.Text = FormInicio.PETFRY.Mascotas[this.IndiceMascota].Notas;
+            Mascota mascota = FormInicio.PETFRY.BuscarMascota(this.IndiceMascota);
+            txtNombre.Text = mascota.Nombre;
+            txtPropietario.Text = mascota.Propietario.Documento;
+            cboAnimal.SelectedText = mascota.Animal;
+            txtRaza.Text = mascota.Raza;
+            txtPeso.Text = mascota.Peso.ToString();
+            txtColor.Text = mascota.Color;
+            txtNotas.Text = mascota.Notas;
             btnAgregar.Text = "Editar";
         }
 
@@ -65,13 +66,14 @@ namespace Interfaz
 
                 if (IndiceMascota.Equals(-1))
                 {
-                    FormInicio.PETFRY.AgregarMascota(new Mascota(txtNombre.Text, propietario, cboAnimal.SelectedText, txtRaza.Text, peso, txtColor.Text, txtNotas.Text));
+                    FormInicio.PETFRY.AgregarMascota(txtNombre.Text, propietario, cboAnimal.SelectedText, txtRaza.Text, peso, txtColor.Text, txtNotas.Text);
                 }
                 else
                 {
-
+                    FormInicio.PETFRY.EditarMascota(IndiceMascota, txtNombre.Text, propietario, cboAnimal.SelectedText, txtRaza.Text, peso, txtColor.Text, txtNotas.Text);
                 }
 
+                FormInicio.ActualizarListaMascotas();
                 this.Close();
             }
         }

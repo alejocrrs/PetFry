@@ -30,19 +30,12 @@
         {
             this.tlpPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.picLogo = new System.Windows.Forms.PictureBox();
-            this.pagMascotas = new System.Windows.Forms.TabPage();
-            this.lvwMascotas = new System.Windows.Forms.ListView();
-            this.chdIdMascota = new System.Windows.Forms.ColumnHeader();
-            this.chdNombreMascota = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
-            this.flpMascotas = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnMascotasAgregar = new System.Windows.Forms.Button();
-            this.btnMascotasEditar = new System.Windows.Forms.Button();
-            this.btnMascotasEliminar = new System.Windows.Forms.Button();
+            this.tabOpciones = new System.Windows.Forms.TabControl();
             this.pagClientes = new System.Windows.Forms.TabPage();
+            this.flpClientes = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnClientesEliminar = new System.Windows.Forms.Button();
+            this.btnClientesEditar = new System.Windows.Forms.Button();
+            this.btnClientesAgregar = new System.Windows.Forms.Button();
             this.lvwClientes = new System.Windows.Forms.ListView();
             this.chdIdCliente = new System.Windows.Forms.ColumnHeader();
             this.chdDocumentoCliente = new System.Windows.Forms.ColumnHeader();
@@ -50,18 +43,27 @@
             this.chdDireccionCliente = new System.Windows.Forms.ColumnHeader();
             this.chdTelefonoCliente = new System.Windows.Forms.ColumnHeader();
             this.chdCorreoCliente = new System.Windows.Forms.ColumnHeader();
-            this.flpClientes = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnClientesAgregar = new System.Windows.Forms.Button();
-            this.btnClientesEditar = new System.Windows.Forms.Button();
-            this.btnClientesEliminar = new System.Windows.Forms.Button();
-            this.tabOpciones = new System.Windows.Forms.TabControl();
+            this.pagMascotas = new System.Windows.Forms.TabPage();
+            this.flpMascotas = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnMascotasEliminar = new System.Windows.Forms.Button();
+            this.btnMascotasEditar = new System.Windows.Forms.Button();
+            this.btnMascotasAgregar = new System.Windows.Forms.Button();
+            this.lvwMascotas = new System.Windows.Forms.ListView();
+            this.chdIdMascota = new System.Windows.Forms.ColumnHeader();
+            this.chdNombreMascota = new System.Windows.Forms.ColumnHeader();
+            this.chdPropietario = new System.Windows.Forms.ColumnHeader();
+            this.chdAnimal = new System.Windows.Forms.ColumnHeader();
+            this.chdRaza = new System.Windows.Forms.ColumnHeader();
+            this.chdPeso = new System.Windows.Forms.ColumnHeader();
+            this.chdColor = new System.Windows.Forms.ColumnHeader();
+            this.chdNotas = new System.Windows.Forms.ColumnHeader();
             this.tlpPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
-            this.pagMascotas.SuspendLayout();
-            this.flpMascotas.SuspendLayout();
+            this.tabOpciones.SuspendLayout();
             this.pagClientes.SuspendLayout();
             this.flpClientes.SuspendLayout();
-            this.tabOpciones.SuspendLayout();
+            this.pagMascotas.SuspendLayout();
+            this.flpMascotas.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpPrincipal
@@ -90,112 +92,16 @@
             this.picLogo.TabIndex = 0;
             this.picLogo.TabStop = false;
             // 
-            // pagMascotas
+            // tabOpciones
             // 
-            this.pagMascotas.Controls.Add(this.flpMascotas);
-            this.pagMascotas.Controls.Add(this.lvwMascotas);
-            this.pagMascotas.Location = new System.Drawing.Point(4, 24);
-            this.pagMascotas.Name = "pagMascotas";
-            this.pagMascotas.Padding = new System.Windows.Forms.Padding(3);
-            this.pagMascotas.Size = new System.Drawing.Size(946, 444);
-            this.pagMascotas.TabIndex = 5;
-            this.pagMascotas.Text = "Mascotas";
-            this.pagMascotas.UseVisualStyleBackColor = true;
-            // 
-            // lvwMascotas
-            // 
-            this.lvwMascotas.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.lvwMascotas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.chdIdMascota,
-            this.chdNombreMascota,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6});
-            this.lvwMascotas.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lvwMascotas.FullRowSelect = true;
-            this.lvwMascotas.Location = new System.Drawing.Point(3, 41);
-            this.lvwMascotas.MultiSelect = false;
-            this.lvwMascotas.Name = "lvwMascotas";
-            this.lvwMascotas.Size = new System.Drawing.Size(940, 400);
-            this.lvwMascotas.TabIndex = 0;
-            this.lvwMascotas.TileSize = new System.Drawing.Size(3, 3);
-            this.lvwMascotas.UseCompatibleStateImageBehavior = false;
-            this.lvwMascotas.View = System.Windows.Forms.View.Details;
-            // 
-            // chdIdMascota
-            // 
-            this.chdIdMascota.Text = "Id";
-            this.chdIdMascota.Width = 50;
-            // 
-            // chdNombreMascota
-            // 
-            this.chdNombreMascota.Text = "Documento";
-            this.chdNombreMascota.Width = 100;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Nombres";
-            this.columnHeader3.Width = 250;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Dirección";
-            this.columnHeader4.Width = 200;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Teléfono";
-            this.columnHeader5.Width = 90;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Correo electrónico";
-            this.columnHeader6.Width = 200;
-            // 
-            // flpMascotas
-            // 
-            this.flpMascotas.Controls.Add(this.btnMascotasEliminar);
-            this.flpMascotas.Controls.Add(this.btnMascotasEditar);
-            this.flpMascotas.Controls.Add(this.btnMascotasAgregar);
-            this.flpMascotas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpMascotas.Location = new System.Drawing.Point(3, 3);
-            this.flpMascotas.Name = "flpMascotas";
-            this.flpMascotas.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flpMascotas.Size = new System.Drawing.Size(940, 38);
-            this.flpMascotas.TabIndex = 1;
-            // 
-            // btnMascotasAgregar
-            // 
-            this.btnMascotasAgregar.Location = new System.Drawing.Point(700, 3);
-            this.btnMascotasAgregar.Name = "btnMascotasAgregar";
-            this.btnMascotasAgregar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnMascotasAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnMascotasAgregar.TabIndex = 0;
-            this.btnMascotasAgregar.Text = "Agregar";
-            this.btnMascotasAgregar.UseVisualStyleBackColor = true;
-            // 
-            // btnMascotasEditar
-            // 
-            this.btnMascotasEditar.Enabled = false;
-            this.btnMascotasEditar.Location = new System.Drawing.Point(781, 3);
-            this.btnMascotasEditar.Name = "btnMascotasEditar";
-            this.btnMascotasEditar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnMascotasEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnMascotasEditar.TabIndex = 1;
-            this.btnMascotasEditar.Text = "Editar";
-            this.btnMascotasEditar.UseVisualStyleBackColor = true;
-            // 
-            // btnMascotasEliminar
-            // 
-            this.btnMascotasEliminar.Enabled = false;
-            this.btnMascotasEliminar.Location = new System.Drawing.Point(862, 3);
-            this.btnMascotasEliminar.Name = "btnMascotasEliminar";
-            this.btnMascotasEliminar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnMascotasEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnMascotasEliminar.TabIndex = 2;
-            this.btnMascotasEliminar.Text = "Eliminar";
-            this.btnMascotasEliminar.UseVisualStyleBackColor = true;
+            this.tabOpciones.Controls.Add(this.pagClientes);
+            this.tabOpciones.Controls.Add(this.pagMascotas);
+            this.tabOpciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabOpciones.Location = new System.Drawing.Point(3, 162);
+            this.tabOpciones.Name = "tabOpciones";
+            this.tabOpciones.SelectedIndex = 0;
+            this.tabOpciones.Size = new System.Drawing.Size(954, 472);
+            this.tabOpciones.TabIndex = 1;
             // 
             // pagClientes
             // 
@@ -209,6 +115,54 @@
             this.pagClientes.Text = "Clientes";
             this.pagClientes.UseVisualStyleBackColor = true;
             // 
+            // flpClientes
+            // 
+            this.flpClientes.Controls.Add(this.btnClientesEliminar);
+            this.flpClientes.Controls.Add(this.btnClientesEditar);
+            this.flpClientes.Controls.Add(this.btnClientesAgregar);
+            this.flpClientes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpClientes.Location = new System.Drawing.Point(3, 3);
+            this.flpClientes.Name = "flpClientes";
+            this.flpClientes.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.flpClientes.Size = new System.Drawing.Size(940, 38);
+            this.flpClientes.TabIndex = 1;
+            this.flpClientes.Click += new System.EventHandler(this.flpClientes_Click);
+            // 
+            // btnClientesEliminar
+            // 
+            this.btnClientesEliminar.Enabled = false;
+            this.btnClientesEliminar.Location = new System.Drawing.Point(862, 3);
+            this.btnClientesEliminar.Name = "btnClientesEliminar";
+            this.btnClientesEliminar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnClientesEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnClientesEliminar.TabIndex = 2;
+            this.btnClientesEliminar.Text = "Eliminar";
+            this.btnClientesEliminar.UseVisualStyleBackColor = true;
+            this.btnClientesEliminar.Click += new System.EventHandler(this.btnClientesEliminar_Click);
+            // 
+            // btnClientesEditar
+            // 
+            this.btnClientesEditar.Enabled = false;
+            this.btnClientesEditar.Location = new System.Drawing.Point(781, 3);
+            this.btnClientesEditar.Name = "btnClientesEditar";
+            this.btnClientesEditar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnClientesEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnClientesEditar.TabIndex = 1;
+            this.btnClientesEditar.Text = "Editar";
+            this.btnClientesEditar.UseVisualStyleBackColor = true;
+            this.btnClientesEditar.Click += new System.EventHandler(this.btnClientesEditar_Click);
+            // 
+            // btnClientesAgregar
+            // 
+            this.btnClientesAgregar.Location = new System.Drawing.Point(700, 3);
+            this.btnClientesAgregar.Name = "btnClientesAgregar";
+            this.btnClientesAgregar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnClientesAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnClientesAgregar.TabIndex = 0;
+            this.btnClientesAgregar.Text = "Agregar";
+            this.btnClientesAgregar.UseVisualStyleBackColor = true;
+            this.btnClientesAgregar.Click += new System.EventHandler(this.btnClientesAgregar_Click);
+            // 
             // lvwClientes
             // 
             this.lvwClientes.Activation = System.Windows.Forms.ItemActivation.OneClick;
@@ -216,8 +170,8 @@
             this.chdIdCliente,
             this.chdDocumentoCliente,
             this.chdNombreCliente,
-            this.chdDireccionCliente,
             this.chdTelefonoCliente,
+            this.chdDireccionCliente,
             this.chdCorreoCliente});
             this.lvwClientes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lvwClientes.FullRowSelect = true;
@@ -255,70 +209,136 @@
             // chdTelefonoCliente
             // 
             this.chdTelefonoCliente.Text = "Teléfono";
-            this.chdTelefonoCliente.Width = 100;
+            this.chdTelefonoCliente.Width = 110;
             // 
             // chdCorreoCliente
             // 
             this.chdCorreoCliente.Text = "Correo electrónico";
-            this.chdCorreoCliente.Width = 200;
+            this.chdCorreoCliente.Width = 220;
             // 
-            // flpClientes
+            // pagMascotas
             // 
-            this.flpClientes.Controls.Add(this.btnClientesEliminar);
-            this.flpClientes.Controls.Add(this.btnClientesEditar);
-            this.flpClientes.Controls.Add(this.btnClientesAgregar);
-            this.flpClientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpClientes.Location = new System.Drawing.Point(3, 3);
-            this.flpClientes.Name = "flpClientes";
-            this.flpClientes.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flpClientes.Size = new System.Drawing.Size(940, 38);
-            this.flpClientes.TabIndex = 1;
+            this.pagMascotas.Controls.Add(this.flpMascotas);
+            this.pagMascotas.Controls.Add(this.lvwMascotas);
+            this.pagMascotas.Location = new System.Drawing.Point(4, 24);
+            this.pagMascotas.Name = "pagMascotas";
+            this.pagMascotas.Padding = new System.Windows.Forms.Padding(3);
+            this.pagMascotas.Size = new System.Drawing.Size(946, 444);
+            this.pagMascotas.TabIndex = 5;
+            this.pagMascotas.Text = "Mascotas";
+            this.pagMascotas.UseVisualStyleBackColor = true;
             // 
-            // btnClientesAgregar
+            // flpMascotas
             // 
-            this.btnClientesAgregar.Location = new System.Drawing.Point(700, 3);
-            this.btnClientesAgregar.Name = "btnClientesAgregar";
-            this.btnClientesAgregar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnClientesAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnClientesAgregar.TabIndex = 0;
-            this.btnClientesAgregar.Text = "Agregar";
-            this.btnClientesAgregar.UseVisualStyleBackColor = true;
-            this.btnClientesAgregar.Click += new System.EventHandler(this.btnClientesAgregar_Click);
+            this.flpMascotas.Controls.Add(this.btnMascotasEliminar);
+            this.flpMascotas.Controls.Add(this.btnMascotasEditar);
+            this.flpMascotas.Controls.Add(this.btnMascotasAgregar);
+            this.flpMascotas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpMascotas.Location = new System.Drawing.Point(3, 3);
+            this.flpMascotas.Name = "flpMascotas";
+            this.flpMascotas.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.flpMascotas.Size = new System.Drawing.Size(940, 38);
+            this.flpMascotas.TabIndex = 1;
+            this.flpMascotas.Click += new System.EventHandler(this.flpMascotas_Click);
             // 
-            // btnClientesEditar
+            // btnMascotasEliminar
             // 
-            this.btnClientesEditar.Enabled = false;
-            this.btnClientesEditar.Location = new System.Drawing.Point(781, 3);
-            this.btnClientesEditar.Name = "btnClientesEditar";
-            this.btnClientesEditar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnClientesEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnClientesEditar.TabIndex = 1;
-            this.btnClientesEditar.Text = "Editar";
-            this.btnClientesEditar.UseVisualStyleBackColor = true;
-            this.btnClientesEditar.Click += new System.EventHandler(this.btnClientesEditar_Click);
+            this.btnMascotasEliminar.Enabled = false;
+            this.btnMascotasEliminar.Location = new System.Drawing.Point(862, 3);
+            this.btnMascotasEliminar.Name = "btnMascotasEliminar";
+            this.btnMascotasEliminar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnMascotasEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnMascotasEliminar.TabIndex = 2;
+            this.btnMascotasEliminar.Text = "Eliminar";
+            this.btnMascotasEliminar.UseVisualStyleBackColor = true;
+            this.btnMascotasEliminar.Click += new System.EventHandler(this.btnMascotasEliminar_Click);
             // 
-            // btnClientesEliminar
+            // btnMascotasEditar
             // 
-            this.btnClientesEliminar.Enabled = false;
-            this.btnClientesEliminar.Location = new System.Drawing.Point(862, 3);
-            this.btnClientesEliminar.Name = "btnClientesEliminar";
-            this.btnClientesEliminar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnClientesEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnClientesEliminar.TabIndex = 2;
-            this.btnClientesEliminar.Text = "Eliminar";
-            this.btnClientesEliminar.UseVisualStyleBackColor = true;
-            this.btnClientesEliminar.Click += new System.EventHandler(this.btnClientesEliminar_Click);
+            this.btnMascotasEditar.Enabled = false;
+            this.btnMascotasEditar.Location = new System.Drawing.Point(781, 3);
+            this.btnMascotasEditar.Name = "btnMascotasEditar";
+            this.btnMascotasEditar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnMascotasEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnMascotasEditar.TabIndex = 1;
+            this.btnMascotasEditar.Text = "Editar";
+            this.btnMascotasEditar.UseVisualStyleBackColor = true;
+            this.btnMascotasEditar.Click += new System.EventHandler(this.btnMascotasEditar_Click);
             // 
-            // tabOpciones
+            // btnMascotasAgregar
             // 
-            this.tabOpciones.Controls.Add(this.pagClientes);
-            this.tabOpciones.Controls.Add(this.pagMascotas);
-            this.tabOpciones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabOpciones.Location = new System.Drawing.Point(3, 162);
-            this.tabOpciones.Name = "tabOpciones";
-            this.tabOpciones.SelectedIndex = 0;
-            this.tabOpciones.Size = new System.Drawing.Size(954, 472);
-            this.tabOpciones.TabIndex = 1;
+            this.btnMascotasAgregar.Location = new System.Drawing.Point(700, 3);
+            this.btnMascotasAgregar.Name = "btnMascotasAgregar";
+            this.btnMascotasAgregar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnMascotasAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnMascotasAgregar.TabIndex = 0;
+            this.btnMascotasAgregar.Text = "Agregar";
+            this.btnMascotasAgregar.UseVisualStyleBackColor = true;
+            this.btnMascotasAgregar.Click += new System.EventHandler(this.btnMascotasAgregar_Click);
+            // 
+            // lvwMascotas
+            // 
+            this.lvwMascotas.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.lvwMascotas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chdIdMascota,
+            this.chdNombreMascota,
+            this.chdPropietario,
+            this.chdAnimal,
+            this.chdRaza,
+            this.chdPeso,
+            this.chdColor,
+            this.chdNotas});
+            this.lvwMascotas.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lvwMascotas.FullRowSelect = true;
+            this.lvwMascotas.Location = new System.Drawing.Point(3, 41);
+            this.lvwMascotas.MultiSelect = false;
+            this.lvwMascotas.Name = "lvwMascotas";
+            this.lvwMascotas.Size = new System.Drawing.Size(940, 400);
+            this.lvwMascotas.TabIndex = 0;
+            this.lvwMascotas.TileSize = new System.Drawing.Size(3, 3);
+            this.lvwMascotas.UseCompatibleStateImageBehavior = false;
+            this.lvwMascotas.View = System.Windows.Forms.View.Details;
+            this.lvwMascotas.SelectedIndexChanged += new System.EventHandler(this.lvwMascotas_SelectedIndexChanged);
+            // 
+            // chdIdMascota
+            // 
+            this.chdIdMascota.Text = "Id";
+            this.chdIdMascota.Width = 50;
+            // 
+            // chdNombreMascota
+            // 
+            this.chdNombreMascota.Text = "Nombre";
+            this.chdNombreMascota.Width = 100;
+            // 
+            // chdPropietario
+            // 
+            this.chdPropietario.Text = "Propietario (Documento)";
+            this.chdPropietario.Width = 150;
+            // 
+            // chdAnimal
+            // 
+            this.chdAnimal.Text = "Animal";
+            this.chdAnimal.Width = 80;
+            // 
+            // chdRaza
+            // 
+            this.chdRaza.Text = "Raza";
+            this.chdRaza.Width = 120;
+            // 
+            // chdPeso
+            // 
+            this.chdPeso.Text = "Peso (kg)";
+            this.chdPeso.Width = 70;
+            // 
+            // chdColor
+            // 
+            this.chdColor.Text = "Color";
+            this.chdColor.Width = 100;
+            // 
+            // chdNotas
+            // 
+            this.chdNotas.Text = "Notas u observaciones";
+            this.chdNotas.Width = 250;
             // 
             // frmInicio
             // 
@@ -330,13 +350,14 @@
             this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PetFry - Inicio";
+            this.Load += new System.EventHandler(this.frmInicio_Load);
             this.tlpPrincipal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
-            this.pagMascotas.ResumeLayout(false);
-            this.flpMascotas.ResumeLayout(false);
+            this.tabOpciones.ResumeLayout(false);
             this.pagClientes.ResumeLayout(false);
             this.flpClientes.ResumeLayout(false);
-            this.tabOpciones.ResumeLayout(false);
+            this.pagMascotas.ResumeLayout(false);
+            this.flpMascotas.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -366,10 +387,12 @@
         public ListView lvwMascotas;
         private ColumnHeader chdIdMascota;
         private ColumnHeader chdNombreMascota;
-        private ColumnHeader columnHeader3;
-        private ColumnHeader columnHeader4;
-        private ColumnHeader columnHeader5;
-        private ColumnHeader columnHeader6;
+        private ColumnHeader chdPropietario;
+        private ColumnHeader chdAnimal;
+        private ColumnHeader chdRaza;
+        private ColumnHeader chdPeso;
         private ColumnHeader columnHeader2;
+        private ColumnHeader chdColor;
+        private ColumnHeader chdNotas;
     }
 }

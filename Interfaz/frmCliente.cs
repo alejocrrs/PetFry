@@ -33,11 +33,12 @@ namespace Interfaz
             InitializeComponent();
 
             Text = $"Editar cliente #{indiceCliente}";
-            txtDocumento.Text = FormInicio.PETFRY.Clientes[this.IndiceCliente].Documento;
-            txtNombre.Text = FormInicio.PETFRY.Clientes[this.IndiceCliente].Nombre;
-            txtDireccion.Text = FormInicio.PETFRY.Clientes[this.IndiceCliente].Direccion;
-            txtTelefono.Text = FormInicio.PETFRY.Clientes[this.IndiceCliente].Telefono;
-            txtCorreo.Text = FormInicio.PETFRY.Clientes[this.IndiceCliente].Correo;
+            Cliente cliente = FormInicio.PETFRY.BuscarCliente(this.IndiceCliente);
+            txtDocumento.Text = cliente.Documento;
+            txtNombre.Text = cliente.Nombre;
+            txtTelefono.Text = cliente.Telefono;
+            txtDireccion.Text = cliente.Direccion;
+            txtCorreo.Text = cliente.Correo;
             btnAgregar.Text = "Editar";
         } 
 
@@ -51,31 +52,14 @@ namespace Interfaz
             {
                 if (IndiceCliente.Equals(-1))
                 {
-                    FormInicio.PETFRY.AgregarCliente(new Cliente(txtDocumento.Text, txtNombre.Text, txtTelefono.Text, txtDireccion.Text, txtCorreo.Text));
-                    
-                    ListViewItem nuevoItem = new ListViewItem(FormInicio.PETFRY.Clientes.Count().ToString());
-                    nuevoItem.SubItems.Add(new ListViewItem.ListViewSubItem(nuevoItem, txtDocumento.Text));
-                    nuevoItem.SubItems.Add(new ListViewItem.ListViewSubItem(nuevoItem, txtNombre.Text));
-                    nuevoItem.SubItems.Add(new ListViewItem.ListViewSubItem(nuevoItem, txtDireccion.Text));
-                    nuevoItem.SubItems.Add(new ListViewItem.ListViewSubItem(nuevoItem, txtTelefono.Text));
-                    nuevoItem.SubItems.Add(new ListViewItem.ListViewSubItem(nuevoItem, txtCorreo.Text));
-                    FormInicio.lvwClientes.Items.Add(nuevoItem);
+                    FormInicio.PETFRY.AgregarCliente(txtDocumento.Text, txtNombre.Text, txtTelefono.Text, txtDireccion.Text, txtCorreo.Text);
                 }
                 else
                 {
-                    FormInicio.PETFRY.Clientes[this.IndiceCliente].Documento = txtDocumento.Text;
-                    FormInicio.PETFRY.Clientes[this.IndiceCliente].Nombre = txtNombre.Text;
-                    FormInicio.PETFRY.Clientes[this.IndiceCliente].Direccion = txtDireccion.Text;
-                    FormInicio.PETFRY.Clientes[this.IndiceCliente].Telefono = txtTelefono.Text;
-                    FormInicio.PETFRY.Clientes[this.IndiceCliente].Correo = txtCorreo.Text;
-
-                    FormInicio.lvwClientes.Items[this.IndiceCliente].SubItems[1].Text = txtDocumento.Text;
-                    FormInicio.lvwClientes.Items[this.IndiceCliente].SubItems[2].Text = txtNombre.Text;
-                    FormInicio.lvwClientes.Items[this.IndiceCliente].SubItems[3].Text = txtDireccion.Text;
-                    FormInicio.lvwClientes.Items[this.IndiceCliente].SubItems[4].Text = txtTelefono.Text;
-                    FormInicio.lvwClientes.Items[this.IndiceCliente].SubItems[5].Text = txtCorreo.Text;
+                    FormInicio.PETFRY.EditarCliente(IndiceCliente, txtDocumento.Text, txtNombre.Text, txtTelefono.Text, txtDireccion.Text, txtCorreo.Text)
                 }
 
+                FormInicio.ActualizarListaClientes();
                 this.Close();
             }
         }

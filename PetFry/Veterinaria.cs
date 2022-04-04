@@ -43,6 +43,11 @@ namespace PetFry
         }
 
         //Acciones Cliente
+        public Cliente BuscarCliente(int indice)
+        {
+            return Clientes[indice];
+        }
+
         public Cliente? BuscarClienteDocumento(string documento)
         {
             foreach (Cliente cliente in Clientes)
@@ -55,32 +60,48 @@ namespace PetFry
             return null;
         }
 
-        public void AgregarCliente(Cliente cliente)
+        public void AgregarCliente(string documento, string nombre, string telefono, string direccion, string correo)
         {
-            Clientes.Add(cliente);
+            Clientes.Add(new Cliente(documento, nombre, telefono, direccion, correo));
         }
 
-        public void EliminarCliente(Cliente cliente)
+        public void EditarCliente(int indice, string documento, string nombre, string telefono, string direccion, string correo)
         {
-            Clientes.Remove(cliente);
+            Clientes[indice].Documento = documento;
+            Clientes[indice].Nombre = nombre;
+            Clientes[indice].Telefono = telefono;
+            Clientes[indice].Direccion = direccion;
+            Clientes[indice].Correo = correo;
         }
-        public void EliminarClienteIndice(int indice)
+
+        public void EliminarCliente(int indice)
         {
             Clientes.RemoveAt(indice);
         }
 
         //Acciones Mascota
-        public void AgregarMascota(Mascota mascota)
+        public Mascota BuscarMascota(int indice)
         {
-            Mascotas.Add(mascota);
+            return Mascotas[indice];
         }
 
-        public void EliminarMascota(Mascota mascota)
+        public void AgregarMascota(string nombre, Cliente propietario, string animal, string raza, double peso, string color, string notas)
         {
-            Mascotas.Remove(mascota);
+            Mascotas.Add(new Mascota(nombre, propietario, animal, raza, peso, color, notas));
         }
 
-        public void EliminarMascotaIndice(int indice)
+        public void EditarMascota(int indice, string nombre, Cliente propietario, string animal, string raza, double peso, string color, string notas)
+        {
+            Mascotas[indice].Nombre = nombre;
+            Mascotas[indice].Propietario = propietario;
+            Mascotas[indice].Animal = animal;
+            Mascotas[indice].Raza = raza;
+            Mascotas[indice].Peso = peso;
+            Mascotas[indice].Color = color;
+            Mascotas[indice].Notas = notas;
+        }
+
+        public void EliminarMascota(int indice)
         {
             Mascotas.RemoveAt(indice);
         }
@@ -91,12 +112,7 @@ namespace PetFry
             Productos.Add(producto);
         }
 
-        public void EliminarProducto(Producto producto)
-        {
-            Productos.Remove(producto);
-        }
-
-        public void EliminarProductoIndice(int indice)
+        public void EliminarProducto(int indice)
         {
             Productos.RemoveAt(indice);
         }
@@ -107,12 +123,7 @@ namespace PetFry
             Servicios.Add(servicio);
         }
 
-        public void EliminarServicio(Servicio servicio)
-        {
-            Servicios.Remove(servicio);
-        }
-
-        public void EliminarServicioIndice(int indice)
+        public void EliminarServicio(int indice)
         {
             Servicios.RemoveAt(indice);
         }
@@ -123,12 +134,7 @@ namespace PetFry
             Ordenes.Add(orden);
         }
 
-        public void EliminarOrden(Orden orden)
-        {
-            Ordenes.Remove(orden);
-        }
-
-        public void EliminarOrdenIndice(int indice)
+        public void EliminarOrden(int indice)
         {
             Ordenes.RemoveAt(indice);
         }
