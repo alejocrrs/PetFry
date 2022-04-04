@@ -36,7 +36,7 @@ namespace Interfaz
             Mascota mascota = FormInicio.PETFRY.BuscarMascota(this.IndiceMascota);
             txtNombre.Text = mascota.Nombre;
             txtPropietario.Text = mascota.Propietario.Documento;
-            cboAnimal.SelectedText = mascota.Animal;
+            cboAnimal.SelectedItem = mascota.Animal;
             txtRaza.Text = mascota.Raza;
             txtPeso.Text = mascota.Peso.ToString();
             txtColor.Text = mascota.Color;
@@ -47,8 +47,9 @@ namespace Interfaz
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Cliente? propietario;
+            string? animal;
 
-            if (txtNombre.Text.Equals("") || txtPropietario.Text.Equals("") || cboAnimal.SelectedText.Equals("") || txtRaza.Text.Equals("") || txtPeso.Text.Equals("") || txtColor.Text.Equals("") || txtNotas.Text.Equals(""))
+            if (txtNombre.Text.Equals("") || txtPropietario.Text.Equals("") || (animal = cboAnimal.SelectedItem.ToString()) is null || txtRaza.Text.Equals("") || txtPeso.Text.Equals("") || txtColor.Text.Equals(""))
             {
                 MessageBox.Show("Por favor, ingresa todos los datos requeridos.", "Datos requeridos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -66,11 +67,11 @@ namespace Interfaz
 
                 if (IndiceMascota.Equals(-1))
                 {
-                    FormInicio.PETFRY.AgregarMascota(txtNombre.Text, propietario, cboAnimal.SelectedText, txtRaza.Text, peso, txtColor.Text, txtNotas.Text);
+                    FormInicio.PETFRY.AgregarMascota(txtNombre.Text, propietario, animal, txtRaza.Text, peso, txtColor.Text, txtNotas.Text);
                 }
                 else
                 {
-                    FormInicio.PETFRY.EditarMascota(IndiceMascota, txtNombre.Text, propietario, cboAnimal.SelectedText, txtRaza.Text, peso, txtColor.Text, txtNotas.Text);
+                    FormInicio.PETFRY.EditarMascota(IndiceMascota, txtNombre.Text, propietario, animal, txtRaza.Text, peso, txtColor.Text, txtNotas.Text);
                 }
 
                 FormInicio.ActualizarListaMascotas();

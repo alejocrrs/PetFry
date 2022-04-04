@@ -40,8 +40,8 @@
             this.chdIdCliente = new System.Windows.Forms.ColumnHeader();
             this.chdDocumentoCliente = new System.Windows.Forms.ColumnHeader();
             this.chdNombreCliente = new System.Windows.Forms.ColumnHeader();
-            this.chdDireccionCliente = new System.Windows.Forms.ColumnHeader();
             this.chdTelefonoCliente = new System.Windows.Forms.ColumnHeader();
+            this.chdDireccionCliente = new System.Windows.Forms.ColumnHeader();
             this.chdCorreoCliente = new System.Windows.Forms.ColumnHeader();
             this.pagMascotas = new System.Windows.Forms.TabPage();
             this.flpMascotas = new System.Windows.Forms.FlowLayoutPanel();
@@ -51,12 +51,12 @@
             this.lvwMascotas = new System.Windows.Forms.ListView();
             this.chdIdMascota = new System.Windows.Forms.ColumnHeader();
             this.chdNombreMascota = new System.Windows.Forms.ColumnHeader();
-            this.chdPropietario = new System.Windows.Forms.ColumnHeader();
-            this.chdAnimal = new System.Windows.Forms.ColumnHeader();
-            this.chdRaza = new System.Windows.Forms.ColumnHeader();
-            this.chdPeso = new System.Windows.Forms.ColumnHeader();
-            this.chdColor = new System.Windows.Forms.ColumnHeader();
-            this.chdNotas = new System.Windows.Forms.ColumnHeader();
+            this.chdPropietarioMascota = new System.Windows.Forms.ColumnHeader();
+            this.chdAnimalMascota = new System.Windows.Forms.ColumnHeader();
+            this.chdRazaMascota = new System.Windows.Forms.ColumnHeader();
+            this.chdPesoMascota = new System.Windows.Forms.ColumnHeader();
+            this.chdColorMascota = new System.Windows.Forms.ColumnHeader();
+            this.chdNotasMascota = new System.Windows.Forms.ColumnHeader();
             this.tlpPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.tabOpciones.SuspendLayout();
@@ -102,6 +102,7 @@
             this.tabOpciones.SelectedIndex = 0;
             this.tabOpciones.Size = new System.Drawing.Size(954, 472);
             this.tabOpciones.TabIndex = 1;
+            this.tabOpciones.SelectedIndexChanged += new System.EventHandler(this.tabOpciones_SelectedIndexChanged);
             // 
             // pagClientes
             // 
@@ -126,7 +127,6 @@
             this.flpClientes.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.flpClientes.Size = new System.Drawing.Size(940, 38);
             this.flpClientes.TabIndex = 1;
-            this.flpClientes.Click += new System.EventHandler(this.flpClientes_Click);
             // 
             // btnClientesEliminar
             // 
@@ -201,15 +201,15 @@
             this.chdNombreCliente.Text = "Nombre completo";
             this.chdNombreCliente.Width = 250;
             // 
-            // chdDireccionCliente
-            // 
-            this.chdDireccionCliente.Text = "Dirección de residencia";
-            this.chdDireccionCliente.Width = 200;
-            // 
             // chdTelefonoCliente
             // 
             this.chdTelefonoCliente.Text = "Teléfono";
             this.chdTelefonoCliente.Width = 110;
+            // 
+            // chdDireccionCliente
+            // 
+            this.chdDireccionCliente.Text = "Dirección de residencia";
+            this.chdDireccionCliente.Width = 200;
             // 
             // chdCorreoCliente
             // 
@@ -239,7 +239,6 @@
             this.flpMascotas.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.flpMascotas.Size = new System.Drawing.Size(940, 38);
             this.flpMascotas.TabIndex = 1;
-            this.flpMascotas.Click += new System.EventHandler(this.flpMascotas_Click);
             // 
             // btnMascotasEliminar
             // 
@@ -282,12 +281,12 @@
             this.lvwMascotas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chdIdMascota,
             this.chdNombreMascota,
-            this.chdPropietario,
-            this.chdAnimal,
-            this.chdRaza,
-            this.chdPeso,
-            this.chdColor,
-            this.chdNotas});
+            this.chdPropietarioMascota,
+            this.chdAnimalMascota,
+            this.chdRazaMascota,
+            this.chdPesoMascota,
+            this.chdColorMascota,
+            this.chdNotasMascota});
             this.lvwMascotas.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lvwMascotas.FullRowSelect = true;
             this.lvwMascotas.Location = new System.Drawing.Point(3, 41);
@@ -299,6 +298,7 @@
             this.lvwMascotas.UseCompatibleStateImageBehavior = false;
             this.lvwMascotas.View = System.Windows.Forms.View.Details;
             this.lvwMascotas.SelectedIndexChanged += new System.EventHandler(this.lvwMascotas_SelectedIndexChanged);
+            this.lvwMascotas.DoubleClick += new System.EventHandler(this.btnMascotasEditar_Click);
             // 
             // chdIdMascota
             // 
@@ -310,35 +310,35 @@
             this.chdNombreMascota.Text = "Nombre";
             this.chdNombreMascota.Width = 100;
             // 
-            // chdPropietario
+            // chdPropietarioMascota
             // 
-            this.chdPropietario.Text = "Propietario (Documento)";
-            this.chdPropietario.Width = 150;
+            this.chdPropietarioMascota.Text = "Propietario (Documento)";
+            this.chdPropietarioMascota.Width = 150;
             // 
-            // chdAnimal
+            // chdAnimalMascota
             // 
-            this.chdAnimal.Text = "Animal";
-            this.chdAnimal.Width = 80;
+            this.chdAnimalMascota.Text = "Animal";
+            this.chdAnimalMascota.Width = 80;
             // 
-            // chdRaza
+            // chdRazaMascota
             // 
-            this.chdRaza.Text = "Raza";
-            this.chdRaza.Width = 120;
+            this.chdRazaMascota.Text = "Raza";
+            this.chdRazaMascota.Width = 120;
             // 
-            // chdPeso
+            // chdPesoMascota
             // 
-            this.chdPeso.Text = "Peso (kg)";
-            this.chdPeso.Width = 70;
+            this.chdPesoMascota.Text = "Peso (kg)";
+            this.chdPesoMascota.Width = 70;
             // 
-            // chdColor
+            // chdColorMascota
             // 
-            this.chdColor.Text = "Color";
-            this.chdColor.Width = 100;
+            this.chdColorMascota.Text = "Color";
+            this.chdColorMascota.Width = 100;
             // 
-            // chdNotas
+            // chdNotasMascota
             // 
-            this.chdNotas.Text = "Notas u observaciones";
-            this.chdNotas.Width = 250;
+            this.chdNotasMascota.Text = "Notas u observaciones";
+            this.chdNotasMascota.Width = 250;
             // 
             // frmInicio
             // 
@@ -376,8 +376,8 @@
         private ColumnHeader chdIdCliente;
         private ColumnHeader chdDocumentoCliente;
         private ColumnHeader chdNombreCliente;
-        private ColumnHeader chdDireccionCliente;
         private ColumnHeader chdTelefonoCliente;
+        private ColumnHeader chdDireccionCliente;
         private ColumnHeader chdCorreoCliente;
         private TabPage pagMascotas;
         private FlowLayoutPanel flpMascotas;
@@ -387,12 +387,11 @@
         public ListView lvwMascotas;
         private ColumnHeader chdIdMascota;
         private ColumnHeader chdNombreMascota;
-        private ColumnHeader chdPropietario;
-        private ColumnHeader chdAnimal;
-        private ColumnHeader chdRaza;
-        private ColumnHeader chdPeso;
-        private ColumnHeader columnHeader2;
-        private ColumnHeader chdColor;
-        private ColumnHeader chdNotas;
+        private ColumnHeader chdPropietarioMascota;
+        private ColumnHeader chdAnimalMascota;
+        private ColumnHeader chdRazaMascota;
+        private ColumnHeader chdPesoMascota;
+        private ColumnHeader chdColorMascota;
+        private ColumnHeader chdNotasMascota;
     }
 }

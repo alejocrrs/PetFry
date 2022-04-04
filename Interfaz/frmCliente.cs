@@ -56,7 +56,7 @@ namespace Interfaz
                 }
                 else
                 {
-                    FormInicio.PETFRY.EditarCliente(IndiceCliente, txtDocumento.Text, txtNombre.Text, txtTelefono.Text, txtDireccion.Text, txtCorreo.Text)
+                    FormInicio.PETFRY.EditarCliente(IndiceCliente, txtDocumento.Text, txtNombre.Text, txtTelefono.Text, txtDireccion.Text, txtCorreo.Text);
                 }
 
                 FormInicio.ActualizarListaClientes();

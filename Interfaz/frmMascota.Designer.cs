@@ -248,6 +248,7 @@
             // 
             // cboAnimal
             // 
+            this.cboAnimal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAnimal.FormattingEnabled = true;
             this.cboAnimal.Items.AddRange(new object[] {
             "Perro",
@@ -256,7 +257,7 @@
             this.cboAnimal.Name = "cboAnimal";
             this.cboAnimal.Size = new System.Drawing.Size(184, 23);
             this.cboAnimal.TabIndex = 11;
-            this.cboAnimal.Text = "Tipo de animal";
+            this.cboAnimal.Tag = "";
             // 
             // flpOpciones
             // 
