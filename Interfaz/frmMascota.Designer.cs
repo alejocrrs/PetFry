@@ -249,6 +249,9 @@
             this.cboAnimal.Name = "cboAnimal";
             this.cboAnimal.Size = new System.Drawing.Size(184, 23);
             this.cboAnimal.TabIndex = 3;
+=======
+            this.cboAnimal.TabIndex = 11;
+>>>>>>> 0c48c96ac609ab4316b8a8a9115cd5a0a794df10
             this.cboAnimal.Tag = "";
             // 
             // flpOpciones
