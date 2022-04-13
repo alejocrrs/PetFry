@@ -9,21 +9,21 @@ namespace PetFry
     public abstract class Articulo
     {
         private string _nombre;
-        private decimal _valor;
+        private int _valor;
         private string _notas;
 
         public string Nombre { get => _nombre; set => _nombre = value; }
-        public decimal Valor { get => _valor; set => _valor = value; }
+        public int Valor { get => _valor; set => _valor = value; }
         public string Notas { get => _notas; set => _notas = value; }
 
-        public Articulo(string nombre, decimal valor, string notas)
+        public Articulo(string nombre, int valor, string notas)
         {
             Nombre = nombre;
             Valor = valor;
             Notas = notas;
         }
 
-        public Articulo(string nombre, decimal valor)
+        public Articulo(string nombre, int valor)
         {
             Nombre = nombre;
             Valor = valor;

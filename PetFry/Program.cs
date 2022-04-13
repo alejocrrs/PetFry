@@ -8,7 +8,6 @@ namespace PetFry
 {
     internal class Program
     {
-        /*
         static void Menu(Veterinaria veterinaria)
         {
             while (true)
@@ -893,15 +892,16 @@ namespace PetFry
             }
             Console.WriteLine();
         }
-        */
 
         static void Main(string[] args)
         {
             Veterinaria PetFry = new Veterinaria("PetFry", "Cl 20 #43-95", "406 3710", "contacto@petfry.com");
-            PetFry.AgregarCliente("1001025610", "Alejandro Córdoba Ríos", "", "", "");
-            PetFry.AgregarCliente("100", "Andrés Marín Escobar", "", "", "");
+            Cliente alejandro = new Cliente("1001025610", "Alejandro Córdoba Ríos");
+            Cliente andres = new Cliente("100", "Andrés Marín Escobar");
+            PetFry.AgregarCliente(alejandro);
+            PetFry.AgregarCliente(andres);
 
-            //Menu(PetFry);
+            Menu(PetFry);
         }
     }
 }

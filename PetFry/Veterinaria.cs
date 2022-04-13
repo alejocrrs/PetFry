@@ -48,11 +48,6 @@ namespace PetFry
             return Clientes[indice];
         }
 
-        public int BuscarCliente(Cliente cliente)
-        {
-            return Clientes.IndexOf(cliente);
-        }
-
         public Cliente? BuscarClienteDocumento(string documento)
         {
             foreach (Cliente cliente in Clientes)
@@ -90,40 +85,12 @@ namespace PetFry
             return Mascotas[indice];
         }
 
-        public List<Mascota> BuscarMascotasCliente(string documentoCliente)
-        {
-            List<Mascota> mascotasCliente = new List<Mascota>();
-
-            foreach (Mascota mascota in Mascotas)
-            {
-                if (mascota.Propietario.Documento == documentoCliente)
-                {
-                    mascotasCliente.Add(mascota);
-                }
-            }
-            return mascotasCliente;
-        }
-
-        public int BuscarMascota(string documentoCliente, string nombreMascota)
-        {
-            List<Mascota> mascotasCliente = BuscarMascotasCliente(documentoCliente);
-
-            foreach (Mascota mascota in mascotasCliente)
-            {
-                if (mascota.Nombre == nombreMascota)
-                {
-                    return Mascotas.IndexOf(mascota);
-                }
-            }
-            return -1;
-        }
-
-        public void AgregarMascota(string nombre, Cliente propietario, string animal, string raza, decimal peso, string color, string notas)
+        public void AgregarMascota(string nombre, Cliente propietario, string animal, string raza, double peso, string color, string notas)
         {
             Mascotas.Add(new Mascota(nombre, propietario, animal, raza, peso, color, notas));
         }
 
-        public void EditarMascota(int indice, string nombre, Cliente propietario, string animal, string raza, decimal peso, string color, string notas)
+        public void EditarMascota(int indice, string nombre, Cliente propietario, string animal, string raza, double peso, string color, string notas)
         {
             Mascotas[indice].Nombre = nombre;
             Mascotas[indice].Propietario = propietario;

@@ -36,176 +36,41 @@ namespace Interfaz
             Mascota mascota = FormInicio.PETFRY.BuscarMascota(this.IndiceMascota);
             txtNombre.Text = mascota.Nombre;
             txtPropietario.Text = mascota.Propietario.Documento;
-            cboAnimal.SelectedItem = mascota.Animal;
+            cboAnimal.SelectedText = mascota.Animal;
             txtRaza.Text = mascota.Raza;
-            numPeso.Value = mascota.Peso;
+            txtPeso.Text = mascota.Peso.ToString();
             txtColor.Text = mascota.Color;
             txtNotas.Text = mascota.Notas;
             btnAgregar.Text = "Editar";
         }
 
-        private bool VerificarNombre()
-        {
-            txtNombre.Focus();
-
-            if (txtNombre.Text == "")
-            {
-                MessageBox.Show("Por favor, ingresa el nombre o apodo.", "Dato requerido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else if (txtNombre.TextLength > 15)
-            {
-                MessageBox.Show("El nombre excede los 15 caracteres.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else if (FormInicio.PETFRY.BuscarMascota(txtPropietario.Text, txtNombre.Text) != -1 && IndiceMascota != FormInicio.PETFRY.BuscarMascota(txtPropietario.Text, txtNombre.Text))
-            {
-                MessageBox.Show($"El nombre coincide con una mascota ya registrada del propietario indicado.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private bool VerificarPropietario()
-        {
-            txtPropietario.Focus();
-
-            if (txtPropietario.Text == "")
-            {
-                MessageBox.Show("Por favor, ingresa el número de documento del propietario.", "Dato requerido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else if (txtPropietario.TextLength > 15)
-            {
-                MessageBox.Show("El número de documento del propietario excede los 15 caracteres.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else if (!Int64.TryParse(txtPropietario.Text, out _))
-            {
-                MessageBox.Show("El número de documento del propietario debe contener solo valores numéricos.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else if (FormInicio.PETFRY.BuscarClienteDocumento(txtPropietario.Text) is null)
-            {
-                MessageBox.Show("El número de documento del propietario no se encuentra registrado.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        public bool VerificarAnimal()
-        {
-            cboAnimal.Focus();
-
-            if (cboAnimal.SelectedItem is null)
-            {
-                MessageBox.Show("Por favor, selecciona un tipo de animal.", "Dato requerido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private bool VerificarRaza()
-        {
-            txtRaza.Focus();
-
-            if (txtRaza.TextLength > 25)
-            {
-                MessageBox.Show("La raza excede los 25 caracteres.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private bool VerificarPeso()
-        {
-            numPeso.Focus();
-
-            if (numPeso.Value == 0)
-            {
-                MessageBox.Show("Por favor, ingresa un peso válido.", "Dato requerido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private bool VerificarColor()
-        {
-            txtColor.Focus();
-
-            if (txtColor.Text == "")
-            {
-                MessageBox.Show("Por favor, ingresa el color o los patrones distintivos.", "Dato requerido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else if (txtColor.TextLength > 50)
-            {
-                MessageBox.Show("El color excede los 50 caracteres.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private bool VerificarNotas()
-        {
-            txtNotas.Focus();
-
-            if (txtNotas.TextLength > 200)
-            {
-                MessageBox.Show("Las notas exceden los 200 caracteres.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private bool VerificarDatos()
-        {
-            if (VerificarNombre() && VerificarPropietario() && VerificarAnimal() && VerificarRaza() && VerificarPeso() && VerificarColor() && VerificarNotas())
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        // EVENTOS
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (VerificarDatos())
+            Cliente? propietario;
+
+            if (txtNombre.Text.Equals("") || txtPropietario.Text.Equals("") || cboAnimal.SelectedText.Equals("") || txtRaza.Text.Equals("") || txtPeso.Text.Equals("") || txtColor.Text.Equals("") || txtNotas.Text.Equals(""))
             {
-                Cliente? propietario = FormInicio.PETFRY.BuscarClienteDocumento(txtPropietario.Text);
-                string? animal = cboAnimal.SelectedItem.ToString();
+                MessageBox.Show("Por favor, ingresa todos los datos requeridos.", "Datos requeridos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if ((propietario = FormInicio.PETFRY.BuscarClienteDocumento(txtPropietario.Text)) is null)
+            {
+                MessageBox.Show("Por favor, ingresa un propietario válido.", "Datos inválidos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (!Double.TryParse(txtPeso.Text.Replace(".", ","), out _))
+            {
+                MessageBox.Show("Por favor, ingresa un peso válido.", "Datos inválidos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                double peso = Double.Parse(txtPeso.Text.Replace(".", ","));
 
                 if (IndiceMascota.Equals(-1))
                 {
-                    FormInicio.PETFRY.AgregarMascota(txtNombre.Text, propietario, animal, txtRaza.Text, numPeso.Value, txtColor.Text, txtNotas.Text);
+                    FormInicio.PETFRY.AgregarMascota(txtNombre.Text, propietario, cboAnimal.SelectedText, txtRaza.Text, peso, txtColor.Text, txtNotas.Text);
                 }
                 else
                 {
-                    FormInicio.PETFRY.EditarMascota(IndiceMascota, txtNombre.Text, propietario, animal, txtRaza.Text, numPeso.Value, txtColor.Text, txtNotas.Text);
+                    FormInicio.PETFRY.EditarMascota(IndiceMascota, txtNombre.Text, propietario, cboAnimal.SelectedText, txtRaza.Text, peso, txtColor.Text, txtNotas.Text);
                 }
 
                 FormInicio.ActualizarListaMascotas();

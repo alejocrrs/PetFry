@@ -36,6 +36,7 @@
             this.lblNotas = new System.Windows.Forms.Label();
             this.txtColor = new System.Windows.Forms.TextBox();
             this.lblColor = new System.Windows.Forms.Label();
+            this.txtPeso = new System.Windows.Forms.TextBox();
             this.txtRaza = new System.Windows.Forms.TextBox();
             this.txtPropietario = new System.Windows.Forms.TextBox();
             this.lblDocumento = new System.Windows.Forms.Label();
@@ -48,11 +49,9 @@
             this.flpOpciones = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.numPeso = new System.Windows.Forms.NumericUpDown();
             this.tlpFormulario.SuspendLayout();
             this.tlpFormMascota.SuspendLayout();
             this.flpOpciones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numPeso)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpFormulario
@@ -97,6 +96,7 @@
             this.tlpFormMascota.Controls.Add(this.lblNotas, 0, 6);
             this.tlpFormMascota.Controls.Add(this.txtColor, 1, 5);
             this.tlpFormMascota.Controls.Add(this.lblColor, 0, 5);
+            this.tlpFormMascota.Controls.Add(this.txtPeso, 1, 4);
             this.tlpFormMascota.Controls.Add(this.txtRaza, 1, 3);
             this.tlpFormMascota.Controls.Add(this.txtPropietario, 1, 1);
             this.tlpFormMascota.Controls.Add(this.lblDocumento, 0, 0);
@@ -107,7 +107,6 @@
             this.tlpFormMascota.Controls.Add(this.txtNombre, 1, 0);
             this.tlpFormMascota.Controls.Add(this.cboAnimal, 1, 2);
             this.tlpFormMascota.Controls.Add(this.flpOpciones, 1, 7);
-            this.tlpFormMascota.Controls.Add(this.numPeso, 1, 4);
             this.tlpFormMascota.Location = new System.Drawing.Point(12, 12);
             this.tlpFormMascota.Name = "tlpFormMascota";
             this.tlpFormMascota.RowCount = 8;
@@ -128,9 +127,9 @@
             this.txtNotas.Location = new System.Drawing.Point(83, 188);
             this.txtNotas.Multiline = true;
             this.txtNotas.Name = "txtNotas";
-            this.txtNotas.PlaceholderText = "Observaciones (Opcional)";
+            this.txtNotas.PlaceholderText = "Observaciones";
             this.txtNotas.Size = new System.Drawing.Size(224, 64);
-            this.txtNotas.TabIndex = 7;
+            this.txtNotas.TabIndex = 16;
             // 
             // lblNotas
             // 
@@ -147,9 +146,9 @@
             this.txtColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtColor.Location = new System.Drawing.Point(83, 158);
             this.txtColor.Name = "txtColor";
-            this.txtColor.PlaceholderText = "Color o patrones distintivos";
+            this.txtColor.PlaceholderText = "Color o colores distintivos";
             this.txtColor.Size = new System.Drawing.Size(224, 23);
-            this.txtColor.TabIndex = 6;
+            this.txtColor.TabIndex = 14;
             // 
             // lblColor
             // 
@@ -161,14 +160,23 @@
             this.lblColor.TabIndex = 13;
             this.lblColor.Text = "Color";
             // 
+            // txtPeso
+            // 
+            this.txtPeso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPeso.Location = new System.Drawing.Point(83, 128);
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.PlaceholderText = "Peso en kilogramos";
+            this.txtPeso.Size = new System.Drawing.Size(224, 23);
+            this.txtPeso.TabIndex = 9;
+            // 
             // txtRaza
             // 
             this.txtRaza.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtRaza.Location = new System.Drawing.Point(83, 98);
             this.txtRaza.Name = "txtRaza";
-            this.txtRaza.PlaceholderText = "Raza (Opcional)";
+            this.txtRaza.PlaceholderText = "Raza (perro o gato)";
             this.txtRaza.Size = new System.Drawing.Size(224, 23);
-            this.txtRaza.TabIndex = 4;
+            this.txtRaza.TabIndex = 8;
             // 
             // txtPropietario
             // 
@@ -177,7 +185,7 @@
             this.txtPropietario.Name = "txtPropietario";
             this.txtPropietario.PlaceholderText = "Documento del propietario";
             this.txtPropietario.Size = new System.Drawing.Size(224, 23);
-            this.txtPropietario.TabIndex = 2;
+            this.txtPropietario.TabIndex = 6;
             // 
             // lblDocumento
             // 
@@ -236,11 +244,10 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.PlaceholderText = "Nombre o apodo";
             this.txtNombre.Size = new System.Drawing.Size(224, 23);
-            this.txtNombre.TabIndex = 1;
+            this.txtNombre.TabIndex = 5;
             // 
             // cboAnimal
             // 
-            this.cboAnimal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAnimal.FormattingEnabled = true;
             this.cboAnimal.Items.AddRange(new object[] {
             "Perro",
@@ -248,8 +255,8 @@
             this.cboAnimal.Location = new System.Drawing.Point(83, 68);
             this.cboAnimal.Name = "cboAnimal";
             this.cboAnimal.Size = new System.Drawing.Size(184, 23);
-            this.cboAnimal.TabIndex = 3;
-            this.cboAnimal.Tag = "";
+            this.cboAnimal.TabIndex = 11;
+            this.cboAnimal.Text = "Tipo de animal";
             // 
             // flpOpciones
             // 
@@ -267,9 +274,8 @@
             // 
             this.btnAgregar.Location = new System.Drawing.Point(146, 3);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 9;
+            this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -278,25 +284,10 @@
             // 
             this.btnCancelar.Location = new System.Drawing.Point(65, 3);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // numPeso
-            // 
-            this.numPeso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.numPeso.DecimalPlaces = 2;
-            this.numPeso.Location = new System.Drawing.Point(83, 128);
-            this.numPeso.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numPeso.Name = "numPeso";
-            this.numPeso.Size = new System.Drawing.Size(224, 23);
-            this.numPeso.TabIndex = 5;
             // 
             // frmMascota
             // 
@@ -316,7 +307,6 @@
             this.tlpFormMascota.ResumeLayout(false);
             this.tlpFormMascota.PerformLayout();
             this.flpOpciones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numPeso)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -327,6 +317,7 @@
         private TextBox txtCorreo;
         private TextBox txtTelefono;
         private TableLayoutPanel tlpFormMascota;
+        private TextBox txtPeso;
         private TextBox txtRaza;
         private Label lblDocumento;
         private Label lblPropietario;
@@ -343,6 +334,5 @@
         private Label lblNotas;
         private TextBox txtColor;
         private Label lblColor;
-        private NumericUpDown numPeso;
     }
 }

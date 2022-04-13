@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -43,142 +42,13 @@ namespace Interfaz
             btnAgregar.Text = "Editar";
         } 
 
-        private bool VerificarDocumento()
-        {
-            txtDocumento.Focus();
-
-            if (txtDocumento.Text == "")
-            {
-                MessageBox.Show("Por favor, ingresa el número de documento.", "Dato requerido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else if (txtDocumento.TextLength > 15)
-            {
-                MessageBox.Show("El número de documento excede los 15 caracteres.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else if (!Int64.TryParse(txtDocumento.Text, out _))
-            {
-                MessageBox.Show("El número de documento debe contener solo valores numéricos.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else if (FormInicio.PETFRY.BuscarClienteDocumento(txtDocumento.Text) is not null && IndiceCliente != FormInicio.PETFRY.BuscarCliente(FormInicio.PETFRY.BuscarClienteDocumento(txtDocumento.Text)))
-            {
-                MessageBox.Show("El número de documento ya se encuentra registrado.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private bool VerificarNombre()
-        {
-            txtNombre.Focus();
-
-            if (txtNombre.Text == "")
-            {
-                MessageBox.Show("Por favor, ingresa el nombre completo.", "Dato requerido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else if (txtNombre.TextLength > 50)
-            {
-                MessageBox.Show("El nombre excede los 50 caracteres.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private bool VerificarTelefono()
-        {
-            txtTelefono.Focus();
-
-            if (txtTelefono.Text == "")
-            {
-                MessageBox.Show("Por favor, ingresa el número de teléfono.", "Dato requerido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else if (txtTelefono.TextLength > 15)
-            {
-                MessageBox.Show("El número de teléfono excede los 15 caracteres.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else if (!Int64.TryParse(txtTelefono.Text, out _))
-            {
-                MessageBox.Show("El número de teléfono debe contener solo valores numéricos.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private bool VerificarDireccion()
-        {
-            txtDireccion.Focus();
-
-            if (txtDireccion.Text == "")
-            {
-                MessageBox.Show("Por favor, ingresa la dirección de residencia.", "Dato requerido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else if (txtDireccion.TextLength > 50)
-            {
-                MessageBox.Show("La dirección de residencia excede los 50 caracteres.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private bool VerificarCorreo()
-        {
-            txtCorreo.Focus();
-
-            if (txtCorreo.Text == "")
-            {
-                MessageBox.Show("Por favor, ingresa el correo electrónico.", "Dato requerido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else if (txtCorreo.TextLength > 40)
-            {
-                MessageBox.Show("El correo electrónico excede los 40 caracteres.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else if (!new EmailAddressAttribute().IsValid(txtCorreo.Text))
-            {
-                MessageBox.Show("El correo electrónico no cumple con la estructura básica (Ejemplo: nombre@ejemplo.com).", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private bool VerificarDatos()
-        {
-            if (VerificarDocumento() && VerificarNombre() && VerificarTelefono() && VerificarDireccion() && VerificarCorreo())
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        // EVENTOS
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (VerificarDatos())
+            if (txtDocumento.Text.Equals("") || txtNombre.Text.Equals("") || txtDireccion.Text.Equals("") || txtTelefono.Text.Equals("") || txtCorreo.Text.Equals(""))
+            {
+                MessageBox.Show("Por favor, ingresa todos los datos requeridos.", "Datos requeridos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
             {
                 if (IndiceCliente.Equals(-1))
                 {
@@ -186,7 +56,7 @@ namespace Interfaz
                 }
                 else
                 {
-                    FormInicio.PETFRY.EditarCliente(IndiceCliente, txtDocumento.Text, txtNombre.Text, txtTelefono.Text, txtDireccion.Text, txtCorreo.Text);
+                    FormInicio.PETFRY.EditarCliente(IndiceCliente, txtDocumento.Text, txtNombre.Text, txtTelefono.Text, txtDireccion.Text, txtCorreo.Text)
                 }
 
                 FormInicio.ActualizarListaClientes();
