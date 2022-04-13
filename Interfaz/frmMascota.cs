@@ -41,7 +41,7 @@ namespace Interfaz
             numPeso.Value = mascota.Peso;
             txtColor.Text = mascota.Color;
             txtNotas.Text = mascota.Notas;
-            btnAgregar.Text = "Editar";
+            btnAgregar.Text = "EditarX";
         }
 
         private bool VerificarNombre()
