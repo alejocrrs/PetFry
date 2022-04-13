@@ -13,14 +13,22 @@ namespace Interfaz
 {
     public partial class frmInicio : Form
     {
+<<<<<<< HEAD
         private Veterinaria _PETFRY = new Veterinaria("PetFry", "***", "000", "admin@petfry.com");
+=======
+        private Veterinaria _PETFRY = new Veterinaria("PetFry", "***", "000", "home@petfry.com");
+>>>>>>> 0c48c96ac609ab4316b8a8a9115cd5a0a794df10
 
         public Veterinaria PETFRY { get => _PETFRY; set => _PETFRY = value; }
 
         public frmInicio()
         {
             PETFRY.AgregarCliente("1001025610", "Alejandro Córdoba Ríos", "3118372792", "Cr. 89 #27-42", "alejocrrs@gmail.com");
+<<<<<<< HEAD
             PETFRY.AgregarMascota("Andy", PETFRY.BuscarCliente(0), "Perro", "Caniche argentino", (decimal)30.4, "Blanco", "");
+=======
+            PETFRY.AgregarMascota("Andy", PETFRY.BuscarCliente(0), "Perro", "Caniche argentino", 30.5, "Blanco", "");
+>>>>>>> 0c48c96ac609ab4316b8a8a9115cd5a0a794df10
             InitializeComponent();
         }
 
