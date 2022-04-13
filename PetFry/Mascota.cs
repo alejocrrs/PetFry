@@ -12,7 +12,7 @@ namespace PetFry
         private Cliente _propietario;
         private string _animal;
         private string _raza;
-        private double _peso;
+        private decimal _peso;
         private string _color;
         private string _notas;
 
@@ -20,11 +20,11 @@ namespace PetFry
         public Cliente Propietario { get => _propietario; set => _propietario = value; }
         public string Animal { get => _animal; set => _animal = value; }
         public string Raza { get => _raza; set => _raza = value; }
-        public double Peso { get => _peso; set => _peso = value; }
+        public decimal Peso { get => _peso; set => _peso = value; }
         public string Color { get => _color; set => _color = value; }
         public string Notas { get => _notas; set => _notas = value; }
 
-        public Mascota(string nombre, Cliente propietario, string animal, string raza, double peso, string color,
+        public Mascota(string nombre, Cliente propietario, string animal, string raza, decimal peso, string color,
             string notas)
         {
             Nombre = nombre;
@@ -36,7 +36,7 @@ namespace PetFry
             Notas = notas;
         }
 
-        public Mascota(string nombre, Cliente propietario, string animal, string raza, double peso, string color)
+        public Mascota(string nombre, Cliente propietario, string animal, string raza, decimal peso, string color)
         {
             Nombre = nombre;
             Propietario = propietario;
@@ -47,7 +47,7 @@ namespace PetFry
             Notas = "";
         }
 
-        public Mascota(string nombre, Cliente propietario, string animal, string raza, double peso)
+        public Mascota(string nombre, Cliente propietario, string animal, string raza, decimal peso)
         {
             Nombre = nombre;
             Propietario = propietario;
