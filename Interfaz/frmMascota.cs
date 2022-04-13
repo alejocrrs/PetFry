@@ -71,7 +71,6 @@ namespace Interfaz
 
         private bool VerificarPropietario()
         {
-<<<<<<< HEAD
             txtPropietario.Focus();
 
             if (txtPropietario.Text == "")
@@ -80,12 +79,6 @@ namespace Interfaz
                 return false;
             }
             else if (txtPropietario.TextLength > 15)
-=======
-            Cliente? propietario;
-            string? animal;
-
-            if (txtNombre.Text.Equals("") || txtPropietario.Text.Equals("") || (animal = cboAnimal.SelectedItem.ToString()) is null || txtRaza.Text.Equals("") || txtPeso.Text.Equals("") || txtColor.Text.Equals(""))
->>>>>>> 0c48c96ac609ab4316b8a8a9115cd5a0a794df10
             {
                 MessageBox.Show("El número de documento del propietario excede los 15 caracteres.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
@@ -208,19 +201,11 @@ namespace Interfaz
 
                 if (IndiceMascota.Equals(-1))
                 {
-<<<<<<< HEAD
                     FormInicio.PETFRY.AgregarMascota(txtNombre.Text, propietario, animal, txtRaza.Text, numPeso.Value, txtColor.Text, txtNotas.Text);
                 }
                 else
                 {
                     FormInicio.PETFRY.EditarMascota(IndiceMascota, txtNombre.Text, propietario, animal, txtRaza.Text, numPeso.Value, txtColor.Text, txtNotas.Text);
-=======
-                    FormInicio.PETFRY.AgregarMascota(txtNombre.Text, propietario, animal, txtRaza.Text, peso, txtColor.Text, txtNotas.Text);
-                }
-                else
-                {
-                    FormInicio.PETFRY.EditarMascota(IndiceMascota, txtNombre.Text, propietario, animal, txtRaza.Text, peso, txtColor.Text, txtNotas.Text);
->>>>>>> 0c48c96ac609ab4316b8a8a9115cd5a0a794df10
                 }
 
                 FormInicio.ActualizarListaMascotas();
