@@ -13,18 +13,21 @@ namespace Interfaz
 {
     public partial class frmInicio : Form
     {
-        private Veterinaria _PETFRY;
+        private Veterinaria _PETFRY = new Veterinaria("PetFry", "***", "000", "admin@petfry.com");
 
         public Veterinaria PETFRY { get => _PETFRY; set => _PETFRY = value; }
 
         public frmInicio()
         {
-            this.PETFRY = new Veterinaria("PetFry", "***", "000", "home@petfry.com");
+            PETFRY.AgregarCliente("1001025610", "Alejandro Córdoba Ríos", "3118372792", "Cr. 89 #27-42", "alejocrrs@gmail.com");
+            PETFRY.AgregarMascota("Andy", PETFRY.BuscarCliente(0), "Perro", "Caniche argentino", (decimal)30.4, "Blanco", "");
             InitializeComponent();
         }
 
         public void ActualizarListaClientes()
         {
+            lvwClientes.Items.Clear();
+
             foreach (Cliente cliente in PETFRY.Clientes)
             {
                 ListViewItem item = new ListViewItem((PETFRY.Clientes.IndexOf(cliente) + 1).ToString());
@@ -39,6 +42,8 @@ namespace Interfaz
 
         public void ActualizarListaMascotas()
         {
+            lvwMascotas.Items.Clear();
+
             foreach (Mascota mascota in PETFRY.Mascotas)
             {
                 ListViewItem item = new ListViewItem((PETFRY.Mascotas.IndexOf(mascota) + 1).ToString());
@@ -60,12 +65,13 @@ namespace Interfaz
             ActualizarListaMascotas();
         }
 
-        // EVENTOS CLIENTES
-        private void flpClientes_Click(object sender, EventArgs e)
+        private void tabOpciones_SelectedIndexChanged(object sender, EventArgs e)
         {
             ActualizarListaClientes();
+            ActualizarListaMascotas();
         }
 
+        // EVENTOS CLIENTES
         private void lvwClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lvwClientes.SelectedItems.Count > 0)
@@ -104,11 +110,6 @@ namespace Interfaz
         }
 
         // EVENTOS MASCOTAS
-        private void flpMascotas_Click(object sender, EventArgs e)
-        {
-            ActualizarListaMascotas();
-        }
-
         private void lvwMascotas_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lvwMascotas.SelectedItems.Count > 0)
