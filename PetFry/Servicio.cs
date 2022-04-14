@@ -8,10 +8,6 @@ namespace PetFry
 {
     public class Servicio : Articulo
     {
-        public Servicio(string nombre, decimal valor) : base(nombre, valor)
-        {
-        }
-
         public Servicio(string nombre, decimal valor, string notas) : base(nombre, valor, notas)
         {
         }

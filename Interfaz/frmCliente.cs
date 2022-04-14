@@ -180,7 +180,7 @@ namespace Interfaz
         {
             if (VerificarDatos())
             {
-                if (IndiceCliente.Equals(-1))
+                if (IndiceCliente == -1)
                 {
                     FormInicio.PETFRY.AgregarCliente(txtDocumento.Text, txtNombre.Text, txtTelefono.Text, txtDireccion.Text, txtCorreo.Text);
                 }

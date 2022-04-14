@@ -199,7 +199,7 @@ namespace Interfaz
                 Cliente? propietario = FormInicio.PETFRY.BuscarClienteDocumento(txtPropietario.Text);
                 string? animal = cboAnimal.SelectedItem.ToString();
 
-                if (IndiceMascota.Equals(-1))
+                if (IndiceMascota == -1)
                 {
                     FormInicio.PETFRY.AgregarMascota(txtNombre.Text, propietario, animal, txtRaza.Text, numPeso.Value, txtColor.Text, txtNotas.Text);
                 }

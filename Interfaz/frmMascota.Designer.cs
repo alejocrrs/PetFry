@@ -38,7 +38,7 @@
             this.lblColor = new System.Windows.Forms.Label();
             this.txtRaza = new System.Windows.Forms.TextBox();
             this.txtPropietario = new System.Windows.Forms.TextBox();
-            this.lblDocumento = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.lblPropietario = new System.Windows.Forms.Label();
             this.lblAnimal = new System.Windows.Forms.Label();
             this.lblRaza = new System.Windows.Forms.Label();
@@ -99,7 +99,7 @@
             this.tlpFormMascota.Controls.Add(this.lblColor, 0, 5);
             this.tlpFormMascota.Controls.Add(this.txtRaza, 1, 3);
             this.tlpFormMascota.Controls.Add(this.txtPropietario, 1, 1);
-            this.tlpFormMascota.Controls.Add(this.lblDocumento, 0, 0);
+            this.tlpFormMascota.Controls.Add(this.lblNombre, 0, 0);
             this.tlpFormMascota.Controls.Add(this.lblPropietario, 0, 1);
             this.tlpFormMascota.Controls.Add(this.lblAnimal, 0, 2);
             this.tlpFormMascota.Controls.Add(this.lblRaza, 0, 3);
@@ -179,15 +179,15 @@
             this.txtPropietario.Size = new System.Drawing.Size(224, 23);
             this.txtPropietario.TabIndex = 2;
             // 
-            // lblDocumento
+            // lblNombre
             // 
-            this.lblDocumento.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblDocumento.AutoSize = true;
-            this.lblDocumento.Location = new System.Drawing.Point(26, 7);
-            this.lblDocumento.Name = "lblDocumento";
-            this.lblDocumento.Size = new System.Drawing.Size(51, 15);
-            this.lblDocumento.TabIndex = 0;
-            this.lblDocumento.Text = "Nombre";
+            this.lblNombre.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(26, 7);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(51, 15);
+            this.lblNombre.TabIndex = 0;
+            this.lblNombre.Text = "Nombre";
             // 
             // lblPropietario
             // 
@@ -297,6 +297,7 @@
             this.numPeso.Name = "numPeso";
             this.numPeso.Size = new System.Drawing.Size(224, 23);
             this.numPeso.TabIndex = 5;
+            this.numPeso.ThousandsSeparator = true;
             // 
             // frmMascota
             // 
@@ -328,7 +329,7 @@
         private TextBox txtTelefono;
         private TableLayoutPanel tlpFormMascota;
         private TextBox txtRaza;
-        private Label lblDocumento;
+        private Label lblNombre;
         private Label lblPropietario;
         private Label lblAnimal;
         private Label lblRaza;

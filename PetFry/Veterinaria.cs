@@ -42,7 +42,7 @@ namespace PetFry
             Ordenes = new List<Orden>();
         }
 
-        //Acciones Cliente
+        //ACCIONES CLIENTE
         public Cliente BuscarCliente(int indice)
         {
             return Clientes[indice];
@@ -84,7 +84,7 @@ namespace PetFry
             Clientes.RemoveAt(indice);
         }
 
-        //Acciones Mascota
+        //ACCIONES MASCOTA
         public Mascota BuscarMascota(int indice)
         {
             return Mascotas[indice];
@@ -139,10 +139,22 @@ namespace PetFry
             Mascotas.RemoveAt(indice);
         }
 
-        //Acciones Producto
-        public void AgregarProducto(Producto producto)
+        //ACCIONES PRODUCTO
+        public Producto BuscarProducto(int indice)
         {
-            Productos.Add(producto);
+            return Productos[indice];
+        }
+
+        public void AgregarProducto(string nombre, decimal valor, string notas)
+        {
+            Productos.Add(new Producto(nombre, valor, notas));
+        }
+
+        public void EditarProducto(int indice, string nombre, decimal valor, string notas)
+        {
+            Productos[indice].Nombre = nombre;
+            Productos[indice].Valor = valor;
+            Productos[indice].Notas = notas;
         }
 
         public void EliminarProducto(int indice)
@@ -150,10 +162,22 @@ namespace PetFry
             Productos.RemoveAt(indice);
         }
 
-        //Acciones Servicio
-        public void AgregarServicio(Servicio servicio)
+        //ACCIONES SERVICIO
+        public Servicio BuscarServicio(int indice)
         {
-            Servicios.Add(servicio);
+            return Servicios[indice];
+        }
+
+        public void AgregarServicio(string nombre, decimal valor, string notas)
+        {
+            Servicios.Add(new Servicio(nombre, valor, notas));
+        }
+
+        public void EditarServicio(int indice, string nombre, decimal valor, string notas)
+        {
+            Servicios[indice].Nombre = nombre;
+            Servicios[indice].Valor = valor;
+            Servicios[indice].Notas = notas;
         }
 
         public void EliminarServicio(int indice)
@@ -161,7 +185,7 @@ namespace PetFry
             Servicios.RemoveAt(indice);
         }
 
-        //Acciones Orden
+        //ACCIONES ORDEN
         public void AgregarOrden(Orden orden)
         {
             Ordenes.Add(orden);

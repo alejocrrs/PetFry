@@ -22,12 +22,5 @@ namespace PetFry
             Valor = valor;
             Notas = notas;
         }
-
-        public Articulo(string nombre, decimal valor)
-        {
-            Nombre = nombre;
-            Valor = valor;
-            Notas = "";
-        }
     }
 }

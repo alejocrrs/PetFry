@@ -57,6 +57,26 @@
             this.chdPesoMascota = new System.Windows.Forms.ColumnHeader();
             this.chdColorMascota = new System.Windows.Forms.ColumnHeader();
             this.chdNotasMascota = new System.Windows.Forms.ColumnHeader();
+            this.pagProductos = new System.Windows.Forms.TabPage();
+            this.flpProductos = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnProductosEliminar = new System.Windows.Forms.Button();
+            this.btnProductosEditar = new System.Windows.Forms.Button();
+            this.btnProductosAgregar = new System.Windows.Forms.Button();
+            this.lvwProductos = new System.Windows.Forms.ListView();
+            this.chdIdProducto = new System.Windows.Forms.ColumnHeader();
+            this.chdNombreProducto = new System.Windows.Forms.ColumnHeader();
+            this.chdValorProducto = new System.Windows.Forms.ColumnHeader();
+            this.chdNotasProducto = new System.Windows.Forms.ColumnHeader();
+            this.pagServicios = new System.Windows.Forms.TabPage();
+            this.flpServicios = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnServiciosEliminar = new System.Windows.Forms.Button();
+            this.btnServiciosEditar = new System.Windows.Forms.Button();
+            this.btnServiciosAgregar = new System.Windows.Forms.Button();
+            this.lvwServicios = new System.Windows.Forms.ListView();
+            this.chdIdServicio = new System.Windows.Forms.ColumnHeader();
+            this.chdNombreServicio = new System.Windows.Forms.ColumnHeader();
+            this.chdValorServicio = new System.Windows.Forms.ColumnHeader();
+            this.chdNotasServicio = new System.Windows.Forms.ColumnHeader();
             this.tlpPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.tabOpciones.SuspendLayout();
@@ -64,6 +84,10 @@
             this.flpClientes.SuspendLayout();
             this.pagMascotas.SuspendLayout();
             this.flpMascotas.SuspendLayout();
+            this.pagProductos.SuspendLayout();
+            this.flpProductos.SuspendLayout();
+            this.pagServicios.SuspendLayout();
+            this.flpServicios.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpPrincipal
@@ -96,6 +120,8 @@
             // 
             this.tabOpciones.Controls.Add(this.pagClientes);
             this.tabOpciones.Controls.Add(this.pagMascotas);
+            this.tabOpciones.Controls.Add(this.pagProductos);
+            this.tabOpciones.Controls.Add(this.pagServicios);
             this.tabOpciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabOpciones.Location = new System.Drawing.Point(3, 162);
             this.tabOpciones.Name = "tabOpciones";
@@ -340,6 +366,206 @@
             this.chdNotasMascota.Text = "Notas u observaciones";
             this.chdNotasMascota.Width = 250;
             // 
+            // pagProductos
+            // 
+            this.pagProductos.Controls.Add(this.flpProductos);
+            this.pagProductos.Controls.Add(this.lvwProductos);
+            this.pagProductos.Location = new System.Drawing.Point(4, 24);
+            this.pagProductos.Name = "pagProductos";
+            this.pagProductos.Padding = new System.Windows.Forms.Padding(3);
+            this.pagProductos.Size = new System.Drawing.Size(946, 444);
+            this.pagProductos.TabIndex = 8;
+            this.pagProductos.Text = "Productos";
+            this.pagProductos.UseVisualStyleBackColor = true;
+            // 
+            // flpProductos
+            // 
+            this.flpProductos.Controls.Add(this.btnProductosEliminar);
+            this.flpProductos.Controls.Add(this.btnProductosEditar);
+            this.flpProductos.Controls.Add(this.btnProductosAgregar);
+            this.flpProductos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpProductos.Location = new System.Drawing.Point(3, 3);
+            this.flpProductos.Name = "flpProductos";
+            this.flpProductos.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.flpProductos.Size = new System.Drawing.Size(940, 38);
+            this.flpProductos.TabIndex = 1;
+            // 
+            // btnProductosEliminar
+            // 
+            this.btnProductosEliminar.Enabled = false;
+            this.btnProductosEliminar.Location = new System.Drawing.Point(862, 3);
+            this.btnProductosEliminar.Name = "btnProductosEliminar";
+            this.btnProductosEliminar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnProductosEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnProductosEliminar.TabIndex = 2;
+            this.btnProductosEliminar.Text = "Eliminar";
+            this.btnProductosEliminar.UseVisualStyleBackColor = true;
+            this.btnProductosEliminar.Click += new System.EventHandler(this.btnProductosEliminar_Click);
+            // 
+            // btnProductosEditar
+            // 
+            this.btnProductosEditar.Enabled = false;
+            this.btnProductosEditar.Location = new System.Drawing.Point(781, 3);
+            this.btnProductosEditar.Name = "btnProductosEditar";
+            this.btnProductosEditar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnProductosEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnProductosEditar.TabIndex = 1;
+            this.btnProductosEditar.Text = "Editar";
+            this.btnProductosEditar.UseVisualStyleBackColor = true;
+            this.btnProductosEditar.Click += new System.EventHandler(this.btnProductosEditar_Click);
+            // 
+            // btnProductosAgregar
+            // 
+            this.btnProductosAgregar.Location = new System.Drawing.Point(700, 3);
+            this.btnProductosAgregar.Name = "btnProductosAgregar";
+            this.btnProductosAgregar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnProductosAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnProductosAgregar.TabIndex = 0;
+            this.btnProductosAgregar.Text = "Agregar";
+            this.btnProductosAgregar.UseVisualStyleBackColor = true;
+            this.btnProductosAgregar.Click += new System.EventHandler(this.btnProductosAgregar_Click);
+            // 
+            // lvwProductos
+            // 
+            this.lvwProductos.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.lvwProductos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chdIdProducto,
+            this.chdNombreProducto,
+            this.chdValorProducto,
+            this.chdNotasProducto});
+            this.lvwProductos.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lvwProductos.FullRowSelect = true;
+            this.lvwProductos.Location = new System.Drawing.Point(3, 41);
+            this.lvwProductos.MultiSelect = false;
+            this.lvwProductos.Name = "lvwProductos";
+            this.lvwProductos.Size = new System.Drawing.Size(940, 400);
+            this.lvwProductos.TabIndex = 0;
+            this.lvwProductos.TileSize = new System.Drawing.Size(3, 3);
+            this.lvwProductos.UseCompatibleStateImageBehavior = false;
+            this.lvwProductos.View = System.Windows.Forms.View.Details;
+            this.lvwProductos.SelectedIndexChanged += new System.EventHandler(this.lvwProductos_SelectedIndexChanged);
+            this.lvwProductos.DoubleClick += new System.EventHandler(this.btnProductosEditar_Click);
+            // 
+            // chdIdProducto
+            // 
+            this.chdIdProducto.Text = "Id";
+            this.chdIdProducto.Width = 50;
+            // 
+            // chdNombreProducto
+            // 
+            this.chdNombreProducto.Text = "Nombre";
+            this.chdNombreProducto.Width = 300;
+            // 
+            // chdValorProducto
+            // 
+            this.chdValorProducto.Text = "Valor (por unidad)";
+            this.chdValorProducto.Width = 200;
+            // 
+            // chdNotasProducto
+            // 
+            this.chdNotasProducto.Text = "Notas u observaciones";
+            this.chdNotasProducto.Width = 250;
+            // 
+            // pagServicios
+            // 
+            this.pagServicios.Controls.Add(this.flpServicios);
+            this.pagServicios.Controls.Add(this.lvwServicios);
+            this.pagServicios.Location = new System.Drawing.Point(4, 24);
+            this.pagServicios.Name = "pagServicios";
+            this.pagServicios.Padding = new System.Windows.Forms.Padding(3);
+            this.pagServicios.Size = new System.Drawing.Size(946, 444);
+            this.pagServicios.TabIndex = 9;
+            this.pagServicios.Text = "Servicios";
+            this.pagServicios.UseVisualStyleBackColor = true;
+            // 
+            // flpServicios
+            // 
+            this.flpServicios.Controls.Add(this.btnServiciosEliminar);
+            this.flpServicios.Controls.Add(this.btnServiciosEditar);
+            this.flpServicios.Controls.Add(this.btnServiciosAgregar);
+            this.flpServicios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpServicios.Location = new System.Drawing.Point(3, 3);
+            this.flpServicios.Name = "flpServicios";
+            this.flpServicios.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.flpServicios.Size = new System.Drawing.Size(940, 38);
+            this.flpServicios.TabIndex = 1;
+            // 
+            // btnServiciosEliminar
+            // 
+            this.btnServiciosEliminar.Enabled = false;
+            this.btnServiciosEliminar.Location = new System.Drawing.Point(862, 3);
+            this.btnServiciosEliminar.Name = "btnServiciosEliminar";
+            this.btnServiciosEliminar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnServiciosEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnServiciosEliminar.TabIndex = 2;
+            this.btnServiciosEliminar.Text = "Eliminar";
+            this.btnServiciosEliminar.UseVisualStyleBackColor = true;
+            this.btnServiciosEliminar.Click += new System.EventHandler(this.btnServiciosEliminar_Click);
+            // 
+            // btnServiciosEditar
+            // 
+            this.btnServiciosEditar.Enabled = false;
+            this.btnServiciosEditar.Location = new System.Drawing.Point(781, 3);
+            this.btnServiciosEditar.Name = "btnServiciosEditar";
+            this.btnServiciosEditar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnServiciosEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnServiciosEditar.TabIndex = 1;
+            this.btnServiciosEditar.Text = "Editar";
+            this.btnServiciosEditar.UseVisualStyleBackColor = true;
+            this.btnServiciosEditar.Click += new System.EventHandler(this.btnServiciosEditar_Click);
+            // 
+            // btnServiciosAgregar
+            // 
+            this.btnServiciosAgregar.Location = new System.Drawing.Point(700, 3);
+            this.btnServiciosAgregar.Name = "btnServiciosAgregar";
+            this.btnServiciosAgregar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnServiciosAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnServiciosAgregar.TabIndex = 0;
+            this.btnServiciosAgregar.Text = "Agregar";
+            this.btnServiciosAgregar.UseVisualStyleBackColor = true;
+            this.btnServiciosAgregar.Click += new System.EventHandler(this.btnServiciosAgregar_Click);
+            // 
+            // lvwServicios
+            // 
+            this.lvwServicios.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.lvwServicios.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chdIdServicio,
+            this.chdNombreServicio,
+            this.chdValorServicio,
+            this.chdNotasServicio});
+            this.lvwServicios.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lvwServicios.FullRowSelect = true;
+            this.lvwServicios.Location = new System.Drawing.Point(3, 41);
+            this.lvwServicios.MultiSelect = false;
+            this.lvwServicios.Name = "lvwServicios";
+            this.lvwServicios.Size = new System.Drawing.Size(940, 400);
+            this.lvwServicios.TabIndex = 0;
+            this.lvwServicios.TileSize = new System.Drawing.Size(3, 3);
+            this.lvwServicios.UseCompatibleStateImageBehavior = false;
+            this.lvwServicios.View = System.Windows.Forms.View.Details;
+            this.lvwServicios.SelectedIndexChanged += new System.EventHandler(this.lvwServicios_SelectedIndexChanged);
+            this.lvwServicios.DoubleClick += new System.EventHandler(this.btnServiciosEditar_Click);
+            // 
+            // chdIdServicio
+            // 
+            this.chdIdServicio.Text = "Id";
+            this.chdIdServicio.Width = 50;
+            // 
+            // chdNombreServicio
+            // 
+            this.chdNombreServicio.Text = "Nombre";
+            this.chdNombreServicio.Width = 300;
+            // 
+            // chdValorServicio
+            // 
+            this.chdValorServicio.Text = "Valor (por unidad)";
+            this.chdValorServicio.Width = 200;
+            // 
+            // chdNotasServicio
+            // 
+            this.chdNotasServicio.Text = "Notas u observaciones";
+            this.chdNotasServicio.Width = 250;
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -358,6 +584,10 @@
             this.flpClientes.ResumeLayout(false);
             this.pagMascotas.ResumeLayout(false);
             this.flpMascotas.ResumeLayout(false);
+            this.pagProductos.ResumeLayout(false);
+            this.flpProductos.ResumeLayout(false);
+            this.pagServicios.ResumeLayout(false);
+            this.flpServicios.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -393,5 +623,25 @@
         private ColumnHeader chdPesoMascota;
         private ColumnHeader chdColorMascota;
         private ColumnHeader chdNotasMascota;
+        private TabPage pagProductos;
+        private FlowLayoutPanel flpProductos;
+        private Button btnProductosEliminar;
+        private Button btnProductosEditar;
+        private Button btnProductosAgregar;
+        public ListView lvwProductos;
+        private ColumnHeader chdIdProducto;
+        private ColumnHeader chdNombreProducto;
+        private ColumnHeader chdValorProducto;
+        private ColumnHeader chdNotasProducto;
+        private TabPage pagServicios;
+        private FlowLayoutPanel flpServicios;
+        private Button btnServiciosEliminar;
+        private Button btnServiciosEditar;
+        private Button btnServiciosAgregar;
+        public ListView lvwServicios;
+        private ColumnHeader chdIdServicio;
+        private ColumnHeader chdNombreServicio;
+        private ColumnHeader chdValorServicio;
+        private ColumnHeader chdNotasServicio;
     }
 }
