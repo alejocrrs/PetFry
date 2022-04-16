@@ -21,8 +21,15 @@ namespace Interfaz
         {
             PETFRY.AgregarCliente("1001025610", "Alejandro Córdoba Ríos", "3118372792", "Cr. 89 #27-42", "alejocrrs@gmail.com");
             PETFRY.AgregarMascota("Andy", PETFRY.BuscarCliente(0), "Perro", "Caniche argentino", (decimal)30.4, "Blanco", "");
-            PETFRY.AgregarProducto("Comida para gato", (decimal)3500, "");
+            PETFRY.AgregarProducto("Comida para gato", (decimal)6500, "");
+            PETFRY.AgregarProducto("Comida para perro", (decimal)4500, "");
+            PETFRY.AgregarProducto("Pelota", (decimal)15000, "");
             PETFRY.AgregarServicio("Baño para perro", (decimal)25300, "");
+            PETFRY.AgregarServicio("Baño para gato", (decimal)25300, "");
+            PETFRY.AgregarServicio("Esterilización perro", (decimal)60000, "");
+            PETFRY.AgregarServicio("Esterilización gato", (decimal)72000, "");
+            PETFRY.AgregarOrden(PETFRY.BuscarCliente(0), null, "Producto", new List<Articulo> { PETFRY.BuscarProducto(0), PETFRY.BuscarProducto(0) }, "");
+            PETFRY.AgregarOrden(PETFRY.BuscarCliente(0), PETFRY.BuscarMascota(0), "Servicio", new List<Articulo> { PETFRY.BuscarServicio(0) }, "");
             InitializeComponent();
         }
 
@@ -33,6 +40,7 @@ namespace Interfaz
             ActualizarListaMascotas();
             ActualizarListaProductos();
             ActualizarListaServicios();
+            ActualizarListaOrdenes();
         }
 
         private void tabOpciones_SelectedIndexChanged(object sender, EventArgs e)
@@ -50,6 +58,9 @@ namespace Interfaz
                     break;
                 case 3:
                     ActualizarListaServicios();
+                    break;
+                case 4:
+                    ActualizarListaOrdenes();
                     break;
             }
         }
@@ -88,7 +99,6 @@ namespace Interfaz
         private void btnClientesAgregar_Click(object sender, EventArgs e)
         {
             new frmCliente(this).ShowDialog();
-            //MessageBox.Show("Te extraño mucho, mi Ornitorrinco :(", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
         private void btnClientesEditar_Click(object sender, EventArgs e)
@@ -106,11 +116,19 @@ namespace Interfaz
 
             if (PETFRY.BuscarMascotasCliente(cliente.Documento).Count != 0)
             {
-                MessageBox.Show("El cliente no se puede eliminar porque hay mascotas u órdenes registradas a su referencia.", "Eliminación inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se puede eliminar el cliente porque hay mascotas registradas a su referencia.", "Eliminación inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
             {
+                foreach (Orden orden in PETFRY.Ordenes)
+                {
+                    if (orden.Cliente == cliente)
+                    {
+                        MessageBox.Show("No se puede eliminar el cliente porque hay órdenes registradas a su referencia.", "Eliminación inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
                 return true;
             }
         }
@@ -182,8 +200,18 @@ namespace Interfaz
             btnMascotasEliminar.Enabled = false;
         }
 
-        private bool ValidarEliminarMascota(int indiceMascota) // REALIZAR VALIDACIÓN
+        private bool ValidarEliminarMascota(int indiceMascota)
         {
+            Mascota mascota = PETFRY.BuscarMascota(indiceMascota);
+
+            foreach (Orden orden in PETFRY.Ordenes)
+            {
+                if (orden.Mascota == mascota)
+                {
+                    MessageBox.Show("No se puede eliminar la mascota porque hay órdenes registradas a su referencia.", "Eliminación inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
             return true;
         }
 
@@ -250,8 +278,21 @@ namespace Interfaz
             btnProductosEliminar.Enabled = false;
         }
 
-        private bool ValidarEliminarProducto(int indiceProducto) // REALIZAR VALIDACIÓN
+        private bool ValidarEliminarProducto(int indiceProducto)
         {
+            Producto producto = PETFRY.BuscarProducto(indiceProducto);
+
+            foreach (Orden orden in PETFRY.Ordenes)
+            {
+                foreach (Articulo articulo in orden.ListaCompra)
+                {
+                    if (articulo == producto)
+                    {
+                        MessageBox.Show("No se puede eliminar el producto porque hay órdenes registradas a su referencia.", "Eliminación inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+            }
             return true;
         }
 
@@ -318,8 +359,21 @@ namespace Interfaz
             btnServiciosEliminar.Enabled = false;
         }
 
-        private bool ValidarEliminarServicio(int indiceServicio) // REALIZAR VALIDACIÓN
+        private bool ValidarEliminarServicio(int indiceServicio)
         {
+            Servicio servicio = PETFRY.BuscarServicio(indiceServicio);
+
+            foreach (Orden orden in PETFRY.Ordenes)
+            {
+                foreach (Articulo articulo in orden.ListaCompra)
+                {
+                    if (articulo == servicio)
+                    {
+                        MessageBox.Show("No se puede eliminar el servicio porque hay órdenes registradas a su referencia.", "Eliminación inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+            }
             return true;
         }
 
@@ -344,5 +398,88 @@ namespace Interfaz
         }
 
         // ÓRDENES
+        public void ActualizarListaOrdenes()
+        {
+            lvwOrdenes.Items.Clear();
+
+            foreach (Orden orden in PETFRY.Ordenes)
+            {
+                string? nombreMascota = null;
+                if (orden.Mascota is not null)
+                {
+                    nombreMascota = orden.Mascota.Nombre;
+                }
+
+                string? listaCompra = null;
+                if (orden.ListaCompra is not null)
+                {
+                    int indiceArticulo = 0;
+                    foreach (Articulo articulo in orden.ListaCompra)
+                    {
+                        listaCompra += articulo.Nombre;
+                        if (indiceArticulo != orden.ListaCompra.Count - 1)
+                        {
+                            listaCompra += "/";
+                        }
+                        indiceArticulo++;
+                    }
+                }
+
+                ListViewItem item = new ListViewItem((PETFRY.Ordenes.IndexOf(orden) + 1).ToString());
+                item.SubItems.Add(new ListViewItem.ListViewSubItem(item, orden.Cliente.Documento));
+                item.SubItems.Add(new ListViewItem.ListViewSubItem(item, nombreMascota));
+                item.SubItems.Add(new ListViewItem.ListViewSubItem(item, orden.Tipo));
+                item.SubItems.Add(new ListViewItem.ListViewSubItem(item, listaCompra));
+                item.SubItems.Add(new ListViewItem.ListViewSubItem(item, orden.ValorTotal.ToString("C")));
+                item.SubItems.Add(new ListViewItem.ListViewSubItem(item, orden.Fecha.ToString("dd/MM/yyyy HH:mm:ss")));
+                item.SubItems.Add(new ListViewItem.ListViewSubItem(item, orden.Notas));
+                lvwOrdenes.Items.Add(item);
+            }
+        }
+
+        private void lvwOrdenes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvwOrdenes.SelectedItems.Count > 0)
+            {
+                btnOrdenesEditar.Enabled = true;
+                btnOrdenesEliminar.Enabled = true;
+            }
+            else
+            {
+                btnOrdenesEditar.Enabled = false;
+                btnOrdenesEliminar.Enabled = false;
+            }
+        }
+
+        private void btnOrdenesAgregar_Click(object sender, EventArgs e)
+        {
+            new frmOrden(this).ShowDialog();
+        }
+
+        private void btnOrdenesEditar_Click(object sender, EventArgs e)
+        {
+            int indiceOrden = Int32.Parse(lvwOrdenes.SelectedItems[0].Text);
+            new frmOrden(this, indiceOrden).ShowDialog();
+
+            btnOrdenesEditar.Enabled = false;
+            btnOrdenesEliminar.Enabled = false;
+        }
+
+        private void btnOrdenesEliminar_Click(object sender, EventArgs e)
+        {
+            int indiceOrden = Int32.Parse(lvwOrdenes.SelectedItems[0].Text);
+
+            if (MessageBox.Show($"¿Quieres eliminar la orden #{indiceOrden}?", $"Eliminar orden #{indiceOrden}", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                indiceOrden--;
+                
+                PETFRY.EliminarOrden(indiceOrden);
+                lvwOrdenes.Items.RemoveAt(indiceOrden);
+                ActualizarListaOrdenes();
+            }
+
+            btnOrdenesEditar.Enabled = false;
+            btnOrdenesEliminar.Enabled = false;
+        }
     }
 }

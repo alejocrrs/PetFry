@@ -24,38 +24,18 @@ namespace PetFry
         public DateTime Fecha { get => _fecha; set => _fecha = value; }
         public string Notas { get => _notas; set => _notas = value; }
 
-        public Orden(Cliente cliente, Mascota? mascota, string tipo, string notas)
+        public Orden(Cliente cliente, Mascota? mascota, string tipo, List<Articulo> listaCompra, string notas)
         {
             Cliente = cliente;
+            Mascota = mascota;
             Tipo = tipo;
-            ListaCompra = new List<Articulo>();
-            ValorTotal = 0;
+            ListaCompra = listaCompra;
+            ValorTotal = CalcularValor(listaCompra);
             Fecha = DateTime.Now;
             Notas = notas;
-
-            if (Tipo == "Servicio")
-            {
-                Mascota = mascota;
-            }
-            else
-            {
-                Mascota = null;
-            }
         }
 
-        public void AgregarArticulo(Articulo articulo)
-        {
-            ListaCompra.Add(articulo);
-            ValorTotal = CalcularValor(ListaCompra);
-        }
-
-        public void EliminarArticulo(Articulo articulo)
-        {
-            ListaCompra.Remove(articulo);
-            ValorTotal = CalcularValor(ListaCompra);
-        }
-
-        public decimal CalcularValor(List<Articulo> listaCompra)
+        public static decimal CalcularValor(List<Articulo> listaCompra)
         {
             decimal valorTotal = 0;
             foreach (var articulo in listaCompra)

@@ -77,6 +77,20 @@
             this.chdNombreServicio = new System.Windows.Forms.ColumnHeader();
             this.chdValorServicio = new System.Windows.Forms.ColumnHeader();
             this.chdNotasServicio = new System.Windows.Forms.ColumnHeader();
+            this.pagOrdenes = new System.Windows.Forms.TabPage();
+            this.flpOrdenes = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnOrdenesEliminar = new System.Windows.Forms.Button();
+            this.btnOrdenesEditar = new System.Windows.Forms.Button();
+            this.btnOrdenesAgregar = new System.Windows.Forms.Button();
+            this.lvwOrdenes = new System.Windows.Forms.ListView();
+            this.chdIdOrden = new System.Windows.Forms.ColumnHeader();
+            this.chdClienteOrden = new System.Windows.Forms.ColumnHeader();
+            this.chdMascotaOrden = new System.Windows.Forms.ColumnHeader();
+            this.chdTipoOrden = new System.Windows.Forms.ColumnHeader();
+            this.chdArticulosOrden = new System.Windows.Forms.ColumnHeader();
+            this.chdValorOrden = new System.Windows.Forms.ColumnHeader();
+            this.chdFechaOrden = new System.Windows.Forms.ColumnHeader();
+            this.chdNotasOrden = new System.Windows.Forms.ColumnHeader();
             this.tlpPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.tabOpciones.SuspendLayout();
@@ -88,6 +102,8 @@
             this.flpProductos.SuspendLayout();
             this.pagServicios.SuspendLayout();
             this.flpServicios.SuspendLayout();
+            this.pagOrdenes.SuspendLayout();
+            this.flpOrdenes.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpPrincipal
@@ -122,6 +138,7 @@
             this.tabOpciones.Controls.Add(this.pagMascotas);
             this.tabOpciones.Controls.Add(this.pagProductos);
             this.tabOpciones.Controls.Add(this.pagServicios);
+            this.tabOpciones.Controls.Add(this.pagOrdenes);
             this.tabOpciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabOpciones.Location = new System.Drawing.Point(3, 162);
             this.tabOpciones.Name = "tabOpciones";
@@ -566,6 +583,130 @@
             this.chdNotasServicio.Text = "Notas u observaciones";
             this.chdNotasServicio.Width = 250;
             // 
+            // pagOrdenes
+            // 
+            this.pagOrdenes.Controls.Add(this.flpOrdenes);
+            this.pagOrdenes.Controls.Add(this.lvwOrdenes);
+            this.pagOrdenes.Location = new System.Drawing.Point(4, 24);
+            this.pagOrdenes.Name = "pagOrdenes";
+            this.pagOrdenes.Padding = new System.Windows.Forms.Padding(3);
+            this.pagOrdenes.Size = new System.Drawing.Size(946, 444);
+            this.pagOrdenes.TabIndex = 10;
+            this.pagOrdenes.Text = "Órdenes";
+            this.pagOrdenes.UseVisualStyleBackColor = true;
+            // 
+            // flpOrdenes
+            // 
+            this.flpOrdenes.Controls.Add(this.btnOrdenesEliminar);
+            this.flpOrdenes.Controls.Add(this.btnOrdenesEditar);
+            this.flpOrdenes.Controls.Add(this.btnOrdenesAgregar);
+            this.flpOrdenes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpOrdenes.Location = new System.Drawing.Point(3, 3);
+            this.flpOrdenes.Name = "flpOrdenes";
+            this.flpOrdenes.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.flpOrdenes.Size = new System.Drawing.Size(940, 38);
+            this.flpOrdenes.TabIndex = 1;
+            // 
+            // btnOrdenesEliminar
+            // 
+            this.btnOrdenesEliminar.Enabled = false;
+            this.btnOrdenesEliminar.Location = new System.Drawing.Point(862, 3);
+            this.btnOrdenesEliminar.Name = "btnOrdenesEliminar";
+            this.btnOrdenesEliminar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnOrdenesEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnOrdenesEliminar.TabIndex = 2;
+            this.btnOrdenesEliminar.Text = "Eliminar";
+            this.btnOrdenesEliminar.UseVisualStyleBackColor = true;
+            this.btnOrdenesEliminar.Click += new System.EventHandler(this.btnOrdenesEliminar_Click);
+            // 
+            // btnOrdenesEditar
+            // 
+            this.btnOrdenesEditar.Enabled = false;
+            this.btnOrdenesEditar.Location = new System.Drawing.Point(781, 3);
+            this.btnOrdenesEditar.Name = "btnOrdenesEditar";
+            this.btnOrdenesEditar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnOrdenesEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnOrdenesEditar.TabIndex = 1;
+            this.btnOrdenesEditar.Text = "Editar";
+            this.btnOrdenesEditar.UseVisualStyleBackColor = true;
+            this.btnOrdenesEditar.Click += new System.EventHandler(this.btnOrdenesEditar_Click);
+            // 
+            // btnOrdenesAgregar
+            // 
+            this.btnOrdenesAgregar.Location = new System.Drawing.Point(700, 3);
+            this.btnOrdenesAgregar.Name = "btnOrdenesAgregar";
+            this.btnOrdenesAgregar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnOrdenesAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnOrdenesAgregar.TabIndex = 0;
+            this.btnOrdenesAgregar.Text = "Agregar";
+            this.btnOrdenesAgregar.UseVisualStyleBackColor = true;
+            this.btnOrdenesAgregar.Click += new System.EventHandler(this.btnOrdenesAgregar_Click);
+            // 
+            // lvwOrdenes
+            // 
+            this.lvwOrdenes.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.lvwOrdenes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chdIdOrden,
+            this.chdClienteOrden,
+            this.chdMascotaOrden,
+            this.chdTipoOrden,
+            this.chdArticulosOrden,
+            this.chdValorOrden,
+            this.chdFechaOrden,
+            this.chdNotasOrden});
+            this.lvwOrdenes.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lvwOrdenes.FullRowSelect = true;
+            this.lvwOrdenes.Location = new System.Drawing.Point(3, 41);
+            this.lvwOrdenes.MultiSelect = false;
+            this.lvwOrdenes.Name = "lvwOrdenes";
+            this.lvwOrdenes.Size = new System.Drawing.Size(940, 400);
+            this.lvwOrdenes.TabIndex = 0;
+            this.lvwOrdenes.TileSize = new System.Drawing.Size(3, 3);
+            this.lvwOrdenes.UseCompatibleStateImageBehavior = false;
+            this.lvwOrdenes.View = System.Windows.Forms.View.Details;
+            this.lvwOrdenes.SelectedIndexChanged += new System.EventHandler(this.lvwOrdenes_SelectedIndexChanged);
+            this.lvwOrdenes.DoubleClick += new System.EventHandler(this.btnOrdenesEditar_Click);
+            // 
+            // chdIdOrden
+            // 
+            this.chdIdOrden.Text = "Id";
+            this.chdIdOrden.Width = 50;
+            // 
+            // chdClienteOrden
+            // 
+            this.chdClienteOrden.Text = "Cliente (Documento)";
+            this.chdClienteOrden.Width = 130;
+            // 
+            // chdMascotaOrden
+            // 
+            this.chdMascotaOrden.Text = "Mascota (Nombre)";
+            this.chdMascotaOrden.Width = 120;
+            // 
+            // chdTipoOrden
+            // 
+            this.chdTipoOrden.Text = "Tipo";
+            this.chdTipoOrden.Width = 70;
+            // 
+            // chdArticulosOrden
+            // 
+            this.chdArticulosOrden.Text = "Artículos (Productos/Servicios)";
+            this.chdArticulosOrden.Width = 180;
+            // 
+            // chdValorOrden
+            // 
+            this.chdValorOrden.Text = "Valor total";
+            this.chdValorOrden.Width = 100;
+            // 
+            // chdFechaOrden
+            // 
+            this.chdFechaOrden.Text = "Fecha/Hora";
+            this.chdFechaOrden.Width = 120;
+            // 
+            // chdNotasOrden
+            // 
+            this.chdNotasOrden.Text = "Notas u observaciones";
+            this.chdNotasOrden.Width = 160;
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -588,6 +729,8 @@
             this.flpProductos.ResumeLayout(false);
             this.pagServicios.ResumeLayout(false);
             this.flpServicios.ResumeLayout(false);
+            this.pagOrdenes.ResumeLayout(false);
+            this.flpOrdenes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -643,5 +786,19 @@
         private ColumnHeader chdNombreServicio;
         private ColumnHeader chdValorServicio;
         private ColumnHeader chdNotasServicio;
+        private TabPage pagOrdenes;
+        private FlowLayoutPanel flpOrdenes;
+        private Button btnOrdenesEliminar;
+        private Button btnOrdenesEditar;
+        private Button btnOrdenesAgregar;
+        public ListView lvwOrdenes;
+        private ColumnHeader chdIdOrden;
+        private ColumnHeader chdMascotaOrden;
+        private ColumnHeader chdClienteOrden;
+        private ColumnHeader chdTipoOrden;
+        private ColumnHeader chdArticulosOrden;
+        private ColumnHeader chdValorOrden;
+        private ColumnHeader chdNotasOrden;
+        private ColumnHeader chdFechaOrden;
     }
 }

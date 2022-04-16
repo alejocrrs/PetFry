@@ -247,7 +247,7 @@
             "Gato"});
             this.cboAnimal.Location = new System.Drawing.Point(83, 68);
             this.cboAnimal.Name = "cboAnimal";
-            this.cboAnimal.Size = new System.Drawing.Size(184, 23);
+            this.cboAnimal.Size = new System.Drawing.Size(224, 23);
             this.cboAnimal.TabIndex = 3;
             this.cboAnimal.Tag = "";
             // 

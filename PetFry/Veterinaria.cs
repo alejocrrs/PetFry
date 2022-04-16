@@ -186,9 +186,24 @@ namespace PetFry
         }
 
         //ACCIONES ORDEN
-        public void AgregarOrden(Orden orden)
+        public Orden BuscarOrden(int indice)
         {
-            Ordenes.Add(orden);
+            return Ordenes[indice];
+        }
+
+        public void AgregarOrden(Cliente cliente, Mascota? mascota, string tipo, List<Articulo> listaCompra, string notas)
+        {
+            Ordenes.Add(new Orden(cliente, mascota, tipo, listaCompra, notas));
+        }
+
+        public void EditarOrden(int indice, Cliente cliente, Mascota? mascota, string tipo, List<Articulo> listaCompra, string notas)
+        {
+            Ordenes[indice].Cliente = cliente;
+            Ordenes[indice].Mascota = mascota;
+            Ordenes[indice].Tipo = tipo;
+            Ordenes[indice].ListaCompra = listaCompra;
+            Ordenes[indice].ValorTotal = Orden.CalcularValor(listaCompra);
+            Ordenes[indice].Notas = notas;
         }
 
         public void EliminarOrden(int indice)
