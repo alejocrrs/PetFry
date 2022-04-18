@@ -13,21 +13,22 @@ namespace Interfaz
 {
     public partial class frmInicio : Form
     {
-        private Veterinaria _PETFRY = new Veterinaria("PetFry", "***", "000", "admin@petfry.com");
+        private Veterinaria _PETFRY = new Veterinaria("PetFry", "Cl. 50 #23-89", "4065694", "admin@petfry.com");
 
         public Veterinaria PETFRY { get => _PETFRY; set => _PETFRY = value; }
 
         public frmInicio()
         {
-            PETFRY.AgregarCliente("1001025610", "Alejandro Córdoba Ríos", "3118372792", "Cr. 89 #27-42", "alejocrrs@gmail.com");
-            PETFRY.AgregarMascota("Andy", PETFRY.BuscarCliente(0), "Perro", "Caniche argentino", (decimal)30.4, "Blanco", "");
+            PETFRY.AgregarCliente("123456789", "Caralampio Rodríguez", "3104505329", "Cl. 69 #42-94 (Int. 305)", "clampior@gmail.com");
+            PETFRY.AgregarCliente("103379053", "Susana Horia", "3258941278", "Cr. 32 #73A-12", "sanahoria@hotmail.com");
+            PETFRY.AgregarMascota("Rosky", PETFRY.BuscarCliente(0), "Perro", "Poddle", (decimal)30.4, "Blanco", "");
             PETFRY.AgregarProducto("Comida para gato", (decimal)6500, "");
             PETFRY.AgregarProducto("Comida para perro", (decimal)4500, "");
             PETFRY.AgregarProducto("Pelota", (decimal)15000, "");
             PETFRY.AgregarServicio("Baño para perro", (decimal)25300, "");
             PETFRY.AgregarServicio("Baño para gato", (decimal)25300, "");
-            PETFRY.AgregarServicio("Esterilización perro", (decimal)60000, "");
-            PETFRY.AgregarServicio("Esterilización gato", (decimal)72000, "");
+            PETFRY.AgregarServicio("Esterilización para perro", (decimal)60000, "");
+            PETFRY.AgregarServicio("Esterilización para gato", (decimal)72000, "");
             PETFRY.AgregarOrden(PETFRY.BuscarCliente(0), null, "Producto", new List<Articulo> { PETFRY.BuscarProducto(0), PETFRY.BuscarProducto(0) }, "");
             PETFRY.AgregarOrden(PETFRY.BuscarCliente(0), PETFRY.BuscarMascota(0), "Servicio", new List<Articulo> { PETFRY.BuscarServicio(0) }, "");
             InitializeComponent();
